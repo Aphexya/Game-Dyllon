@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dskw6woeerkpw"]
+
+[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/inventoryItem.gd" id="1_47ubu"]
+[ext_resource type="Texture2D" uid="uid://cyfhyag03wx41" path="res://Art 2/Item Pack/weapons/Blood_greatsword.png" id="2_4nx25"]
+
+[resource]
+script = ExtResource("1_47ubu")
+name = "black_sword"
+texture = ExtResource("2_4nx25")
+metadata/_custom_type_script = "uid://bwpb4mny1iq2c"

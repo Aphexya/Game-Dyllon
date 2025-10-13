@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://rtj7pun0xhxb"]
+
+[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/inventoryItem.gd" id="1_ghr8m"]
+[ext_resource type="Texture2D" uid="uid://domth0re47poh" path="res://Art 2/Item Pack/consumables/potion_of_health_4.png" id="2_v0iqw"]
+
+[resource]
+script = ExtResource("1_ghr8m")
+name = "potion"
+texture = ExtResource("2_v0iqw")
+metadata/_custom_type_script = "uid://bwpb4mny1iq2c"

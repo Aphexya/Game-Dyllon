@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://j41me70c4lbl"]
+
+[ext_resource type="PackedScene" uid="uid://wint543gmuij" path="res://scenes/Collectables/collectable.tscn" id="1_5oq2u"]
+[ext_resource type="Texture2D" uid="uid://domth0re47poh" path="res://Art 2/Item Pack/consumables/potion_of_health_4.png" id="2_5s7so"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mc24"]
+resource_local_to_scene = true
+size = Vector2(11, 12)
+
+[node name="Potion" instance=ExtResource("1_5oq2u")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_3mc24")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_5s7so")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
