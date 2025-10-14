@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=5 format=3 uid="uid://kqrqmsj7k5ut"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=3 format=3 uid="uid://kqrqmsj7k5ut"]
 
 [ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/inventoryItem.gd" id="1_y7vrm"]
-[ext_resource type="Resource" uid="uid://rtj7pun0xhxb" path="res://Inventory/items/potion.tres" id="2_tdus5"]
-[ext_resource type="Resource" uid="uid://dskw6woeerkpw" path="res://Inventory/items/black_sword.tres" id="3_5r6hm"]
 [ext_resource type="Script" uid="uid://dl02b1ijdg4xk" path="res://Inventory/inventory.gd" id="4_xtjt5"]
 
 [resource]
 script = ExtResource("4_xtjt5")
-items = Array[ExtResource("1_y7vrm")]([ExtResource("2_tdus5"), ExtResource("2_tdus5"), ExtResource("3_5r6hm"), null, null, null, ExtResource("2_tdus5"), ExtResource("2_tdus5"), ExtResource("3_5r6hm"), ExtResource("3_5r6hm"), null])
+items = Array[ExtResource("1_y7vrm")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://dl02b1ijdg4xk"

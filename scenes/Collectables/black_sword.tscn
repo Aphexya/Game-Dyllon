@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://djxj8h0uni4th"]
+[gd_scene load_steps=9 format=3 uid="uid://djxj8h0uni4th"]
 
 [ext_resource type="PackedScene" uid="uid://wint543gmuij" path="res://scenes/Collectables/collectable.tscn" id="1_gr7yr"]
 [ext_resource type="Script" uid="uid://rv3hacxl0148" path="res://scenes/Collectables/black_sword.gd" id="2_84n3j"]
 [ext_resource type="Texture2D" uid="uid://cyfhyag03wx41" path="res://Art 2/Item Pack/weapons/Blood_greatsword.png" id="2_mc8sk"]
+[ext_resource type="Resource" uid="uid://dskw6woeerkpw" path="res://Inventory/items/black_sword.tres" id="3_xuix0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dc6op"]
 resource_local_to_scene = true
@@ -48,6 +49,7 @@ _data = {
 
 [node name="BlackSword" instance=ExtResource("1_gr7yr")]
 script = ExtResource("2_84n3j")
+itemRes = ExtResource("3_xuix0")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_dc6op")
