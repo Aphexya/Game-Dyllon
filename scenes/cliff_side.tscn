@@ -1,11 +1,19 @@
-[gd_scene load_steps=17 format=4 uid="uid://dilptxnv01wmc"]
+[gd_scene load_steps=21 format=4 uid="uid://dilptxnv01wmc"]
 
 [ext_resource type="Texture2D" uid="uid://3by3pss2ew3b" path="res://Art/tilesets/grass.png" id="1_e10jm"]
 [ext_resource type="Script" uid="uid://dpaemacr7by8b" path="res://scripts/cliff_side.gd" id="1_v3mbj"]
 [ext_resource type="Texture2D" uid="uid://cv4h8h2seaul" path="res://Art/tilesets/floors/flooring.png" id="2_jcley"]
+[ext_resource type="PackedScene" uid="uid://djxj8h0uni4th" path="res://scenes/Collectables/black_sword.tscn" id="2_ygqrx"]
+[ext_resource type="PackedScene" uid="uid://j41me70c4lbl" path="res://scenes/Collectables/potion.tscn" id="3_71q3n"]
 [ext_resource type="Texture2D" uid="uid://b3l3x4pgmvy76" path="res://Art/tilesets/plains.png" id="3_v3mbj"]
 [ext_resource type="PackedScene" uid="uid://chw6gbvcglq2b" path="res://scenes/player.tscn" id="4_jcley"]
 [ext_resource type="Texture2D" uid="uid://247sddd5ckry" path="res://Art/objects/objects.png" id="6_0riok"]
+[ext_resource type="PackedScene" uid="uid://dv7f4u6bi783i" path="res://scenes/peti.tscn" id="9_71q3n"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_axhr3"]
+resource_name = "Collectables"
+scenes/1/scene = ExtResource("2_ygqrx")
+scenes/3/scene = ExtResource("3_71q3n")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ocn37"]
 texture = ExtResource("1_e10jm")
@@ -162,6 +170,7 @@ sources/1 = SubResource("TileSetAtlasSource_ocn37")
 sources/2 = SubResource("TileSetAtlasSource_0riok")
 sources/4 = SubResource("TileSetAtlasSource_jcley")
 sources/3 = SubResource("TileSetAtlasSource_ygqrx")
+sources/0 = SubResource("TileSetScenesCollectionSource_axhr3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v3mbj"]
 texture = ExtResource("3_v3mbj")
@@ -207,9 +216,12 @@ y_sort_enabled = true
 script = ExtResource("1_v3mbj")
 
 [node name="TileMap" type="TileMap" parent="."]
+light_mask = 3
+visibility_layer = 3
 y_sort_enabled = true
 tile_set = SubResource("TileSet_71q3n")
 format = 2
+layer_0/name = "Item"
 layer_0/tile_data = PackedInt32Array(458764, 327683, 2, 524300, 327683, 2)
 
 [node name="ground" type="TileMapLayer" parent="TileMap"]
@@ -230,7 +242,7 @@ tile_set = SubResource("TileSet_ocn37")
 
 [node name="objek" type="TileMapLayer" parent="TileMap"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAPAAkAAAAGAAcAAAAEAAQAAAAGAAcAAAAEAAsAAAAGAAcAAAAQAAQAAAAKAAcAAAAMAAQAAAAGAAcAAAAIAAgAAAAGAAcAAAANAAcAAAAAAAEAAAAHAAUAAAAAAAEAAAAFAAkAAAAAAAEAAAALAAsAAAAAAAEAAAAJAAQAAAAAAAAAAAAKAAQAAAAFAAAAAAANAAsAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAPAAkAAAAGAAcAAAAEAAQAAAAGAAcAAAAEAAsAAAAGAAcAAAAQAAQAAAAKAAcAAAAIAAgAAAAGAAcAAAANAAcAAAAAAAEAAAAHAAUAAAAAAAEAAAAFAAkAAAAAAAEAAAALAAsAAAAAAAEAAAAJAAQAAAAAAAAAAAANAAsAAAAAAAAAAAAMAAMAAAAIAAYAAAA=")
 tile_set = SubResource("TileSet_pb76u")
 
 [node name="collision" type="StaticBody2D" parent="."]
@@ -249,6 +261,9 @@ y_sort_enabled = true
 y_sort_enabled = true
 position = Vector2(161.5, 291.5)
 shape = SubResource("RectangleShape2D_ocn37")
+
+[node name="peti" parent="." instance=ExtResource("9_71q3n")]
+position = Vector2(174, 78)
 
 [connection signal="body_entered" from="cliffside_exitpoint" to="." method="_on_cliffside_exitpoint_body_entered"]
 [connection signal="body_exited" from="cliffside_exitpoint" to="." method="_on_cliffside_exitpoint_body_exited"]

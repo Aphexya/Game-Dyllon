@@ -23,8 +23,6 @@ func _physics_process(delta):
 	current_camera()
 	update_health()
 	
-	
-	
 	# Jika health habis, player dianggap mati
 	if health <= 0:
 		player_alive = false
@@ -33,35 +31,40 @@ func _physics_process(delta):
 		self.queue_free()
 
 
-
 # Mengatur gerakan player dan animasi saat bergerak
 func gerak_player(delta):
+	var is_moving = false
+	
 	if Input.is_action_pressed("ui_right"):
 		arah = "kanan"
-		arah_player(true)
 		velocity.x = kecepatan * delta * 60
 		velocity.y = 0
+		is_moving = true
 	elif Input.is_action_pressed("ui_left"):
 		arah = "kiri"
-		arah_player(true)
 		velocity.x = -kecepatan * delta * 60
 		velocity.y = 0
+		is_moving = true
 	elif Input.is_action_pressed("ui_up"):
 		arah = "atas"
-		arah_player(true)
 		velocity.x = 0
 		velocity.y = -kecepatan * delta * 60
+		is_moving = true
 	elif Input.is_action_pressed("ui_down"):
 		arah = "bawah"
-		arah_player(true)
 		velocity.x = 0
 		velocity.y = kecepatan * delta * 60
+		is_moving = true
 	else:
-		# Jika tidak menekan tombol gerak → animasi diam
-		arah_player(false)
+		# Jika tidak menekan tombol gerak
 		velocity.x = 0
 		velocity.y = 0
-		
+		is_moving = false
+	
+	# Update animasi hanya jika tidak sedang menyerang
+	if !attack_ip:
+		arah_player(is_moving)
+	
 	move_and_slide()
 
 
@@ -75,27 +78,23 @@ func arah_player(gerak):
 		if gerak:
 			animasi.play("jalan_kanan")
 		else:
-			if attack_ip == false:
-				animasi.play("diam")
+			animasi.play("diam")
 	elif arah_sekarang == "kiri":
 		animasi.flip_h = true
 		if gerak:
 			animasi.play("jalan_kiri")
 		else:
-			if attack_ip == false:
-				animasi.play("diam")
+			animasi.play("diam")
 	elif arah_sekarang == "atas":
 		if gerak:
 			animasi.play("jalan_atas")
 		else:
-			if attack_ip == false:
-				animasi.play("diam")
+			animasi.play("diam")
 	elif arah_sekarang == "bawah":
 		if gerak:
 			animasi.play("jalan_bawah")
 		else:
-			if attack_ip == false:
-				animasi.play("diam")
+			animasi.play("diam")
 
 
 func player():
@@ -125,34 +124,34 @@ func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 
 
-# Mengatur animasi dan logika saat player menyerang
+# Mengatur animasi dan logika saat player menyerang (BISA SAMBIL GERAK)
 func attack():
 	var arah_sekarang = arah
 	
 	if Input.is_action_just_pressed("attack"):
 		global.player_current_attack = true
 		attack_ip = true
+		
+		# Mainkan animasi attack sesuai arah
 		if arah_sekarang == "kanan":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("side_attack")
-			$deal_attack_timer.start()
-		if arah_sekarang == "kiri":
+		elif arah_sekarang == "kiri":
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("side_attack")
-			$deal_attack_timer.start()
-		if arah_sekarang == "bawah":
+		elif arah_sekarang == "bawah":
 			$AnimatedSprite2D.play("front_attack")
-			$deal_attack_timer.start()
-		if arah_sekarang == "atas":
+		elif arah_sekarang == "atas":
 			$AnimatedSprite2D.play("back_attack")
-			$deal_attack_timer.start()
+		
+		$deal_attack_timer.start()
 
 
 # Reset status serangan setelah animasi selesai
 func _on_deal_attack_timer_timeout() -> void:
-	$deal_attack_timer.start()
 	global.player_current_attack = false
 	attack_ip = false
+	# Tidak perlu start timer lagi karena sudah one-shot
 
 
 # Mengaktifkan kamera sesuai scene aktif
