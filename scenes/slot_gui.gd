@@ -2,16 +2,21 @@ extends Panel
 
 @onready var backgroundSprite: Sprite2D = $background
 @onready var itemSprite: Sprite2D = $CenterContainer/Panel/item
+@onready var amountLabel: Label = $CenterContainer/Panel/Label
 
-func update(item: InventoryItem):
+
+func update(slot: InventorySlot):
 	if not is_instance_valid(itemSprite) or not is_instance_valid(backgroundSprite):
 		push_error("SlotGui: Sprite node tidak ditemukan!")
 		return
 
-	if item:
+	if !slot.item:
 		backgroundSprite.frame = 0
-		itemSprite.visible = true
-		itemSprite.texture = item.texture
+		itemSprite.visible = false
+		amountLabel.visible = false
 	else:
 		backgroundSprite.frame = 1
-		itemSprite.visible = false
+		itemSprite.visible = true
+		itemSprite.texture = slot.item.texture
+		amountLabel.visible = true
+		amountLabel.text = str(slot.amount)
