@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://wkry0vd35jv7" path="res://scenes/canvas_layer.gd" id="9_ofjyc"]
 [ext_resource type="PackedScene" uid="uid://dv7f4u6bi783i" path="res://scenes/peti.tscn" id="9_omm3i"]
 [ext_resource type="PackedScene" uid="uid://b82m1upcje0aw" path="res://scenes/inventory_gui.tscn" id="10_ofjyc"]
-[ext_resource type="Script" uid="uid://bru1vblvrfrri" path="res://Items/InventoryItems.gd" id="12_cnub1"]
+[ext_resource type="Script" uid="uid://bru1vblvrfrri" path="res://Items/InventoryItem.gd" id="12_cnub1"]
 [ext_resource type="Resource" uid="uid://b1pi6k8islqo4" path="res://Items/potion.tres" id="13_ulk4w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofjyc"]
@@ -276,14 +276,11 @@ shape = SubResource("RectangleShape2D_jnujs")
 [node name="peti" parent="." instance=ExtResource("9_omm3i")]
 position = Vector2(768, 298)
 items = Dictionary[ExtResource("12_cnub1"), int]({
-ExtResource("13_ulk4w"): 5
+ExtResource("13_ulk4w"): 2
 })
 
 [node name="peti2" parent="." instance=ExtResource("9_omm3i")]
 position = Vector2(796, 298)
-items = Dictionary[ExtResource("12_cnub1"), int]({
-ExtResource("13_ulk4w"): 3
-})
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("9_ofjyc")
@@ -302,25 +299,25 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [connection signal="body_entered" from="TileMap/Potion" to="TileMap/Potion" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46526" to="TileMap/@Area2D@46526" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46527" to="TileMap/@Area2D@46527" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46528" to="TileMap/@Area2D@46528" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46529" to="TileMap/@Area2D@46529" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46530" to="TileMap/@Area2D@46530" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46531" to="TileMap/@Area2D@46531" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46532" to="TileMap/@Area2D@46532" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46533" to="TileMap/@Area2D@46533" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46534" to="TileMap/@Area2D@46534" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34310" to="TileMap/@Area2D@34310" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34311" to="TileMap/@Area2D@34311" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34312" to="TileMap/@Area2D@34312" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34313" to="TileMap/@Area2D@34313" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34314" to="TileMap/@Area2D@34314" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34315" to="TileMap/@Area2D@34315" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34316" to="TileMap/@Area2D@34316" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34317" to="TileMap/@Area2D@34317" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34318" to="TileMap/@Area2D@34318" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMap/BlackSword" to="TileMap/BlackSword" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46535" to="TileMap/@Area2D@46535" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46536" to="TileMap/@Area2D@46536" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46537" to="TileMap/@Area2D@46537" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46538" to="TileMap/@Area2D@46538" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46539" to="TileMap/@Area2D@46539" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46540" to="TileMap/@Area2D@46540" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46541" to="TileMap/@Area2D@46541" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46542" to="TileMap/@Area2D@46542" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@46543" to="TileMap/@Area2D@46543" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34319" to="TileMap/@Area2D@34319" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34320" to="TileMap/@Area2D@34320" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34321" to="TileMap/@Area2D@34321" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34322" to="TileMap/@Area2D@34322" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34323" to="TileMap/@Area2D@34323" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34324" to="TileMap/@Area2D@34324" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34325" to="TileMap/@Area2D@34325" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34326" to="TileMap/@Area2D@34326" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@34327" to="TileMap/@Area2D@34327" method="_on_body_entered"]
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]

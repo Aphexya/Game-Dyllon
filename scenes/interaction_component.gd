@@ -1,6 +1,7 @@
 extends Area2D
 
 var can_interact: Array[CollisionObject2D] = []
+@onready var parent = get_parent()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("interact"):
@@ -15,4 +16,4 @@ func _on_body_exited(body: Node2D) -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		for o in can_interact:
-			o.interact()
+			o.interact(parent)

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItems" load_steps=4 format=3 uid="uid://b1pi6k8islqo4"]
+
+[ext_resource type="Script" uid="uid://bru1vblvrfrri" path="res://Items/InventoryItems.gd" id="1_5vqjr"]
+[ext_resource type="Texture2D" uid="uid://domth0re47poh" path="res://Art 2/Item Pack/consumables/potion_of_health_4.png" id="2_t8xv6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu55q"]
+atlas = ExtResource("2_t8xv6")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_5vqjr")
+texture = SubResource("AtlasTexture_eu55q")
+name = "potion"
+metadata/_custom_type_script = "uid://bru1vblvrfrri"

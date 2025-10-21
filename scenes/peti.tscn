@@ -112,3 +112,9 @@ region_rect = Rect2(0, 0, 32.0254, 16.2098)
 libraries = {
 &"": SubResource("AnimationLibrary_jujsn")
 }
+
+[node name="ItemStartPos" type="Marker2D" parent="."]
+position = Vector2(0, -9)
+
+[node name="ItemEndPos" type="Marker2D" parent="."]
+position = Vector2(0, -22)

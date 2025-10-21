@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dilptxnv01wmc"]
+[gd_scene load_steps=23 format=4 uid="uid://dilptxnv01wmc"]
 
 [ext_resource type="Texture2D" uid="uid://3by3pss2ew3b" path="res://Art/tilesets/grass.png" id="1_e10jm"]
 [ext_resource type="Script" uid="uid://dpaemacr7by8b" path="res://scripts/cliff_side.gd" id="1_v3mbj"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://chw6gbvcglq2b" path="res://scenes/player.tscn" id="4_jcley"]
 [ext_resource type="Texture2D" uid="uid://247sddd5ckry" path="res://Art/objects/objects.png" id="6_0riok"]
 [ext_resource type="PackedScene" uid="uid://dv7f4u6bi783i" path="res://scenes/peti.tscn" id="9_71q3n"]
+[ext_resource type="Script" uid="uid://bru1vblvrfrri" path="res://Items/InventoryItems.gd" id="10_pb76u"]
+[ext_resource type="Resource" uid="uid://b1pi6k8islqo4" path="res://Items/potion.tres" id="11_5q6pw"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_axhr3"]
 resource_name = "Collectables"
@@ -264,6 +266,9 @@ shape = SubResource("RectangleShape2D_ocn37")
 
 [node name="peti" parent="." instance=ExtResource("9_71q3n")]
 position = Vector2(174, 78)
+items = Dictionary[ExtResource("10_pb76u"), int]({
+ExtResource("11_5q6pw"): 5
+})
 
 [connection signal="body_entered" from="cliffside_exitpoint" to="." method="_on_cliffside_exitpoint_body_entered"]
 [connection signal="body_exited" from="cliffside_exitpoint" to="." method="_on_cliffside_exitpoint_body_exited"]
