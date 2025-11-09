@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccmqbmsb0ldcc"]
+
+[ext_resource type="Texture2D" uid="uid://cwbud7n3oujy" path="res://Art 2/The Fan-tasy/Props/Animation/Campfire.png" id="1_ywqth"]
+[ext_resource type="Script" uid="uid://btvpcacwja0ge" path="res://scenes/checkpoint.gd" id="2_vsimk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqsag"]
+size = Vector2(32, 32)
+
+[node name="checkpoint" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_ywqth")
+hframes = 8
+script = ExtResource("2_vsimk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yqsag")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 1)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

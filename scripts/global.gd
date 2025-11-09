@@ -5,7 +5,7 @@ var player_current_attack = false
 var current_scene = "world" # scene aktif saat ini (world / cliff_side)
 var transition_scene = false # status apakah sedang transisi scene
 
-# Posisi transisi player antar-scene (bisa digunakan untuk spawn point)
+# Posisi transisi player antar-scene
 var player_exit_cliffside_posx = 304.0
 var player_exit_cliffside_posy = 36.0
 var player_start_posx = 64.0
@@ -23,3 +23,8 @@ func finish_changescenes():
 		current_scene = "cliff_side"
 	else:
 		current_scene = "world"
+		
+
+#Xheckpoint
+var checkpoint_pos: Vector2 = Vector2(-999, -999)
+var previous_checkpoint_node: Sprite2D = null

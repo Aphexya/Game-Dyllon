@@ -28,7 +28,7 @@ func _physics_process(delta):
 		player_alive = false
 		health = 0
 		print("player has been killed")
-		self.queue_free()
+		respawn()  # ganti dari queue_free() jadi panggil respawn()
 
 
 # Mengatur gerakan player dan animasi saat bergerak
@@ -114,7 +114,7 @@ func _on_player_hitbox_body_exited(body: Node2D):
 # Mengatur logika serangan musuh ke player
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health -= 5
+		health -= 50
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(health)
@@ -183,3 +183,15 @@ func _on_regen_timer_timeout() -> void:
 			health = 100
 	if health <= 0:
 		health = 0
+
+# Respawn untuk kembali hidup lagi
+func respawn():
+	await get_tree().create_timer(0.5).timeout  # beri jeda 0.5 detik
+	if global.checkpoint_pos != Vector2(-999, -999):
+		global_position = global.checkpoint_pos
+	else:
+		global_position = Vector2(global.player_start_posx, global.player_start_posy)
+
+	health = 100
+	player_alive = true
+	print("Respawned at:", global_position)
