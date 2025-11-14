@@ -2,7 +2,7 @@ extends Node
 
 # Script global untuk menyimpan variabel dan status antar-scene.
 var player_current_attack = false
-var current_scene = "world" # scene aktif saat ini (world / cliff_side)
+var current_scene = "main_menu" # scene aktif saat ini (world / cliff_side)
 var transition_scene = false # status apakah sedang transisi scene
 
 # Posisi transisi player antar-scene

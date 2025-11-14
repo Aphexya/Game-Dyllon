@@ -1,10 +1,10 @@
 [gd_scene load_steps=25 format=3 uid="uid://caqc22oekle5"]
 
 [ext_resource type="Script" uid="uid://23aqv6y2gp04" path="res://scripts/dunia.gd" id="1_5vhgi"]
-[ext_resource type="Texture2D" uid="uid://3by3pss2ew3b" path="res://Art/tilesets/grass.png" id="1_bisvx"]
-[ext_resource type="Texture2D" uid="uid://b3l3x4pgmvy76" path="res://Art/tilesets/plains.png" id="2_5vhgi"]
-[ext_resource type="Texture2D" uid="uid://247sddd5ckry" path="res://Art/objects/objects.png" id="3_jnujs"]
-[ext_resource type="Texture2D" uid="uid://jxro2b6qglsk" path="res://Art/tilesets/fences.png" id="4_omm3i"]
+[ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_bisvx"]
+[ext_resource type="Texture2D" uid="uid://djkfs057ljxnx" path="res://Art/Map Level 1/plains.png" id="2_5vhgi"]
+[ext_resource type="Texture2D" uid="uid://dnsqupeu82snm" path="res://Art/Map Level 1/objects.png" id="3_jnujs"]
+[ext_resource type="Texture2D" uid="uid://o1wgs2ftfxto" path="res://Art/Map Level 1/fences.png" id="4_omm3i"]
 [ext_resource type="PackedScene" uid="uid://chw6gbvcglq2b" path="res://scenes/player.tscn" id="5_ofjyc"]
 [ext_resource type="Texture2D" uid="uid://cjbsccqb5iloi" path="res://Art 2/Cozy Valley/Tilesets/BASIC_terrain.png" id="6_mbtoj"]
 [ext_resource type="PackedScene" uid="uid://cec8l6vgem0pw" path="res://scenes/enemy.tscn" id="6_sjxbm"]
@@ -303,7 +303,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="checkpoint" parent="." instance=ExtResource("16_ulk4w")]
-position = Vector2(54, 110)
+position = Vector2(64, 149)
 
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]

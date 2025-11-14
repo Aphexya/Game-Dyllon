@@ -13,6 +13,9 @@ var arah = "diam" # arah pergerakan player terakhir
 
 @export var inventory: Inventory
 
+func _ready():
+	add_to_group("player")
+
 # Fungsi utama yang dipanggil setiap frame
 func _physics_process(delta):
 	if !global.player_can_move: # kode gerakan player
@@ -156,12 +159,25 @@ func _on_deal_attack_timer_timeout() -> void:
 
 # Mengaktifkan kamera sesuai scene aktif
 func current_camera():
+	# Jika masih di main menu → semua kamera OFF
+	if global.current_scene == "main_menu":
+		$world_camera.enabled = false
+		$cliffside_camera.enabled = false
+		return
+		
+	# Jika di world
 	if global.current_scene == "world":
 		$world_camera.enabled = true
 		$cliffside_camera.enabled = false
-	elif global.current_scene == "cliff_side":
+		return
+
+	# Jika di cliff_side
+	if global.current_scene == "cliff_side":
 		$world_camera.enabled = false
 		$cliffside_camera.enabled = true
+		return
+
+
 
 
 # Menampilkan dan memperbarui health bar player
