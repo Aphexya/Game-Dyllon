@@ -6,7 +6,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mc24"]
 resource_local_to_scene = true
-size = Vector2(11, 12)
+size = Vector2(11, 10)
 
 [node name="Potion" instance=ExtResource("1_5oq2u")]
 itemRes = ExtResource("2_75mod")

@@ -15,6 +15,8 @@ var arah = "diam" # arah pergerakan player terakhir
 
 func _ready():
 	add_to_group("player")
+	print("Player groups:", get_groups())
+
 
 # Fungsi utama yang dipanggil setiap frame
 func _physics_process(delta):

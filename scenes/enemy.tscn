@@ -1,7 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://cec8l6vgem0pw"]
+[gd_scene load_steps=28 format=3 uid="uid://cec8l6vgem0pw"]
 
 [ext_resource type="Script" uid="uid://odhpwepdttq5" path="res://scripts/enemy.gd" id="1_4gyqm"]
+[ext_resource type="Resource" uid="uid://dslb37odpa40q" path="res://Items/SlimeCore.tres" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://urvlycs63ixp" path="res://Art/characters/enemy/slime.png" id="2_qi2p4"]
+[ext_resource type="PackedScene" uid="uid://bb06ofayu2e6t" path="res://scenes/Collectables/drop_item.tscn" id="3_5uy6h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("2_qi2p4")
@@ -170,6 +172,8 @@ radius = 11.0
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_4gyqm")
+drop_item = ExtResource("2_4ra3w")
+item_drop_scene = ExtResource("3_5uy6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)

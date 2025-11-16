@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 # Script untuk AI musuh (slime): mengejar player, menerima damage, dan menampilkan health bar.
 var speed = 40
 var player_chase = false
@@ -7,6 +8,10 @@ var health = 100
 var player_inattack_zone = false
 var can_take_damage = true
 var is_dead = false  # Flag untuk mencegah logika berjalan setelah mati
+
+@export var drop_item: InventoryItem
+@export var item_drop_scene: PackedScene
+
 
 # Update posisi dan animasi musuh setiap frame
 func _physics_process(delta):
@@ -103,6 +108,7 @@ func die():
 	
 	print("Animation finished, removing enemy...")
 	# Hapus enemy dari scene
+	spawn_drop()
 	queue_free()
 
 # Cooldown agar musuh tidak kena damage berulang terlalu cepat
@@ -118,3 +124,26 @@ func update_health():
 		healthbar.visible = false
 	else:
 		healthbar.visible = true
+
+
+
+func spawn_drop():
+	if drop_item == null:
+		print("Drop item null!")
+		return
+	if item_drop_scene == null:
+		print("ItemDropScene belum di-set!")
+		return
+
+	var drop = item_drop_scene.instantiate()
+
+	# ❗ SET KE VARIABEL YANG BENAR (itemRes)
+	drop.itemRes = drop_item
+
+	# Spawn di scene utama
+	get_tree().current_scene.add_child(drop)
+
+	# Posisi drop muncul di posisi slime mati
+	drop.global_position = global_position
+
+	print("DROP SPAWNED:", drop, " item:", drop.itemRes)
