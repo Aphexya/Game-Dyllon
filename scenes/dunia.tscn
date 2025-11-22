@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://caqc22oekle5"]
+[gd_scene load_steps=27 format=3 uid="uid://caqc22oekle5"]
 
 [ext_resource type="Script" uid="uid://23aqv6y2gp04" path="res://scripts/dunia.gd" id="1_5vhgi"]
 [ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_bisvx"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://wkry0vd35jv7" path="res://scenes/canvas_layer.gd" id="9_ofjyc"]
 [ext_resource type="PackedScene" uid="uid://dv7f4u6bi783i" path="res://scenes/peti.tscn" id="9_omm3i"]
 [ext_resource type="PackedScene" uid="uid://b82m1upcje0aw" path="res://scenes/inventory_gui.tscn" id="10_ofjyc"]
+[ext_resource type="Script" uid="uid://c0pj3bre3vkim" path="res://scripts/transition_point.gd" id="11_bmaxm"]
 [ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="12_ulk4w"]
 [ext_resource type="Resource" uid="uid://b1pi6k8islqo4" path="res://Items/potion.tres" id="14_bmaxm"]
 [ext_resource type="PackedScene" uid="uid://ccmqbmsb0ldcc" path="res://scenes/checkpoint.tscn" id="16_ulk4w"]
@@ -229,8 +230,11 @@ sources/4 = SubResource("TileSetAtlasSource_ebeiv")
 sources/5 = SubResource("TileSetAtlasSource_ungyv")
 sources/6 = SubResource("TileSetScenesCollectionSource_ebeiv")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnujs"]
-size = Vector2(73, 43)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmaxm"]
+size = Vector2(57, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7c52"]
+size = Vector2(72, 41)
 
 [node name="dunia" type="Node2D"]
 y_sort_enabled = true
@@ -257,21 +261,24 @@ layer_4/y_sort_enabled = true
 position = Vector2(64, 153)
 
 [node name="enemy" parent="." instance=ExtResource("6_sjxbm")]
-position = Vector2(204, 182)
+position = Vector2(190, 150)
 
 [node name="enemy2" parent="." instance=ExtResource("6_sjxbm")]
-position = Vector2(494, 249)
+position = Vector2(341, 238)
+
+[node name="enemy3" parent="." instance=ExtResource("6_sjxbm")]
+position = Vector2(474, 218)
+
+[node name="enemy4" parent="." instance=ExtResource("6_sjxbm")]
+position = Vector2(648, 297)
+
+[node name="enemy5" parent="." instance=ExtResource("6_sjxbm")]
+position = Vector2(667, 117)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(10, -1, 268, 0, 267, -43, 340, -41, 339, 0, 658, 0, 658, -52, 715, -51, 715, -1, 815, 0, 816, 274, 865, 270, 866, 321, 816, 319, 817, 511, 0, 512, -1, -1, -24, -29, -85, 19, -182, 370, -17, 589, 425, 631, 853, 525, 1036, 202, 839, -28, 479, -192, 133, -107, -7, -30, -24, -29)
-
-[node name="cliffside_transition_point" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_transition_point"]
-position = Vector2(303.5, -20.5)
-shape = SubResource("RectangleShape2D_jnujs")
 
 [node name="peti" parent="." instance=ExtResource("9_omm3i")]
 position = Vector2(63, 102)
@@ -298,7 +305,24 @@ grow_vertical = 0
 [node name="checkpoint" parent="." instance=ExtResource("16_ulk4w")]
 position = Vector2(64, 149)
 
-[connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
-[connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]
+[node name="dunia2_transition_point" type="Area2D" parent="."]
+script = ExtResource("11_bmaxm")
+target_scene = "res://scenes/dunia2.tscn"
+spawn_pos = Vector2(200, 150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dunia2_transition_point"]
+position = Vector2(686.5, -26.5)
+shape = SubResource("RectangleShape2D_bmaxm")
+
+[node name="cliffside_transition_point" type="Area2D" parent="."]
+script = ExtResource("11_bmaxm")
+target_scene = "res://scenes/cliff_side.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_transition_point"]
+position = Vector2(304, -21.5)
+shape = SubResource("RectangleShape2D_e7c52")
+
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_opened"]
+[connection signal="body_entered" from="dunia2_transition_point" to="dunia2_transition_point" method="_on_body_entered"]
+[connection signal="body_entered" from="cliffside_transition_point" to="cliffside_transition_point" method="_on_body_entered"]

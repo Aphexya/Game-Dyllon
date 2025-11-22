@@ -13,23 +13,26 @@ func _ready():
 func _process(delta):
 	change_scene()
 
-# Jika player menyentuh titik masuk ke cliff_side, aktifkan transisi
-func _on_cliffside_transition_point_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
-		global.transition_scene = true
-
-func _on_cliffside_transition_point_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
-		global.transition_scene = false
-
 
 # Pindah scene ke cliff_side
 func change_scene():
-	if global.transition_scene == true:
-		if global.current_scene == "world":
-			get_tree().change_scene_to_file("res://scenes/cliff_side.tscn")
+	if global.transition_scene:
+		print("Fungsi change_scene() aktif")
+		print("Scene yg akan dibuka:", global.next_scene_path)
+
+		if global.next_scene_path != "":
+			get_tree().change_scene_to_file(global.next_scene_path)
+
+			# SET ke FALSE agar tidak looping
+			global.transition_scene = false
+
 			global.game_first_loading = false
+			global.player_start_posx = global.next_spawn_pos.x
+			global.player_start_posy = global.next_spawn_pos.y
+			
 			global.finish_changescenes()
+
+
 
 
 func _on_inventory_gui_closed() -> void:

@@ -26,7 +26,7 @@ func _physics_process(delta):
 	gerak_player(delta)
 	enemy_attack()
 	attack()
-	current_camera()
+	#current_camera()
 	update_health()
 	
 	# Jika health habis, player dianggap mati
@@ -160,25 +160,25 @@ func _on_deal_attack_timer_timeout() -> void:
 	# Tidak perlu start timer lagi karena sudah one-shot
 
 
-# Mengaktifkan kamera sesuai scene aktif
-func current_camera():
-	# Jika masih di main menu → semua kamera OFF
-	if global.current_scene == "main_menu":
-		$world_camera.enabled = false
-		$cliffside_camera.enabled = false
-		return
-		
-	# Jika di world
-	if global.current_scene == "world":
-		$world_camera.enabled = true
-		$cliffside_camera.enabled = false
-		return
-
-	# Jika di cliff_side
-	if global.current_scene == "cliff_side":
-		$world_camera.enabled = false
-		$cliffside_camera.enabled = true
-		return
+## Mengaktifkan kamera sesuai scene aktif
+#func current_camera():
+	## Jika masih di main menu → semua kamera OFF
+	#if global.current_scene == "main_menu":
+		#$world_camera.enabled = false
+		#$cliffside_camera.enabled = false
+		#return
+		#
+	## Jika di world
+	#if global.current_scene == "world":
+		#$world_camera.enabled = true
+		#$cliffside_camera.enabled = false
+		#return
+#
+	## Jika di cliff_side
+	#if global.current_scene == "cliff_side":
+		#$world_camera.enabled = false
+		#$cliffside_camera.enabled = true
+		#return
 
 
 
@@ -211,8 +211,10 @@ func heal(amount):
 # Respawn untuk kembali hidup lagi
 func respawn():
 	await get_tree().create_timer(0.5).timeout  # beri jeda 0.5 detik
-	if global.checkpoint_pos != Vector2(-999, -999):
-		global_position = global.checkpoint_pos
+	var pos = global.checkpoint_scene_pos[global.current_scene]
+
+	if pos != Vector2(-999, -999):
+		global_position = pos
 	else:
 		global_position = Vector2(global.player_start_posx, global.player_start_posy)
 
