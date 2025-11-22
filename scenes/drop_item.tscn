@@ -1,12 +1,39 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfnlvldbg26s3"]
 
-[ext_resource type="Script" uid="uid://cn6rxa8carfuo" path="res://scripts/drop_item.gd" id="1_hj20x"]
+[sub_resource type="GDScript" id="GDScript_rurja"]
+script/source = "extends Node2D
+
+@export var item: InventoryItem
+
+func _ready():
+	if item == null:
+		print(\"ERROR: item kosong!\")
+	else:
+		print(\"Item icon:\", item.icon)
+
+	if item.icon:
+		$Sprite2D.texture = item.icon
+	else:
+		# Debug: biar kelihatan kalau icon hilang
+		$Sprite2D.modulate = Color(1, 0, 0) # jadikan merah
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group(\"player\"):
+		print(\"Player mengambil item:\", item.name)
+		body.inventory.insert(item)
+		queue_free()
+
+func interact(player):
+	if player.inventory:
+		player.inventory.insert(item)
+		queue_free()
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hj20x"]
 radius = 4.0
 
 [node name="drop_item" type="Node2D"]
-script = ExtResource("1_hj20x")
+script = SubResource("GDScript_rurja")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

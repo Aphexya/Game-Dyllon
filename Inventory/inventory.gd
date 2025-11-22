@@ -20,5 +20,26 @@ func insert(item: InventoryItem):
 			new_slot.item = item
 			new_slot.amount = 1
 			slots.append(new_slot)
+			
+	updated.emit()
+
+func use_item(slot: InventorySlot, player):
+	if slot.item == null:
+		print("NO ITEM IN SLOT")
+		return
 	
+	print("Using item:", slot.item.name)
+	print("Effect type:", slot.item.effect_type)
+	print("Effect value:", slot.item.effect_value)
+	print("Using item:", slot.item.name)
+	print("Effect:", slot.item.effect_type, slot.item.effect_value)
+
+	match slot.item.effect_type:
+		"heal":
+			player.heal(slot.item.effect_value)
+
+	slot.amount -= 1
+	if slot.amount <= 0:
+		slot.item = null
+
 	updated.emit()

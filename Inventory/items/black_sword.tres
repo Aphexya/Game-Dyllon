@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dskw6woeerkpw"]
 
 [ext_resource type="Texture2D" uid="uid://ciywf30jf4a37" path="res://Art/Items/Blood_greatsword.png" id="1_4nx25"]
-[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/inventoryItem.gd" id="1_47ubu"]
+[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="1_47ubu"]
 
 [resource]
 script = ExtResource("1_47ubu")

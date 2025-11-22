@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://rtj7pun0xhxb"]
 
-[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/inventoryItem.gd" id="1_ghr8m"]
+[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="1_ghr8m"]
 [ext_resource type="Texture2D" uid="uid://dmi3np0kkrgj" path="res://Art/Items/potion_of_health_4.png" id="1_v0iqw"]
 
 [resource]
@@ -8,4 +8,6 @@ script = ExtResource("1_ghr8m")
 name = "potion"
 icon = ExtResource("1_v0iqw")
 stackable = true
+effect_type = "heal"
+effect_value = 30
 metadata/_custom_type_script = "uid://bwpb4mny1iq2c"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItems" load_steps=3 format=3 uid="uid://du7pynu0tfs6f"]
+
+[ext_resource type="Script" uid="uid://bru1vblvrfrri" path="res://Items/InventoryItems.gd" id="1_n2wgy"]
+[ext_resource type="Texture2D" uid="uid://dm0ijmdn7jv4l" path="res://Art/Items/key_silver.png" id="2_n2wgy"]
+
+[resource]
+script = ExtResource("1_n2wgy")
+texture = ExtResource("2_n2wgy")
+name = "Key Fragment"
+effect_type = ""
+effect_value = 0
+metadata/_custom_type_script = "uid://bru1vblvrfrri"

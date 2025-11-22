@@ -20,3 +20,30 @@ func update(slot: InventorySlot):
 		itemSprite.texture = slot.item.icon
 		amountLabel.visible = true
 		amountLabel.text = str(slot.amount)
+
+func _ready():
+	self.connect("gui_input", Callable(self, "_on_gui_input"))
+
+
+func _on_gui_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		_use_this_item()
+
+
+func _use_this_item():
+	var player = get_tree().root.get_node("dunia/Player")
+
+	if player == null:
+		print("PLAYER NOT FOUND")
+		return
+
+	var inventory = player.inventory
+
+	if inventory == null:
+		print("INVENTORY NOT FOUND")
+		return
+
+	var slot_index = get_index()
+	var slot = inventory.slots[slot_index]
+
+	inventory.use_item(slot, player)

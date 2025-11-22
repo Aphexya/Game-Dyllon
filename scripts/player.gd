@@ -3,7 +3,8 @@ extends CharacterBody2D
 # Script untuk mengatur perilaku player: gerak, serangan, kamera, dan kesehatan.
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 100
+var max_health = 100
+var health = 70
 var player_alive = true
 
 var attack_ip = false # status apakah player sedang menyerang
@@ -186,21 +187,26 @@ func current_camera():
 func update_health():
 	var healthbar = $healthbar
 	healthbar.value = health
-	
-	if health >= 100:
-		healthbar.visible = false
-	else:
-		healthbar.visible = true
 
+	if health >= max_health:
+		healthbar.modulate.a = 3.0    # transparan saat full HP
+	else:
+		healthbar.modulate.a = 1.0    # solid saat HP berkurang
+
+
+func heal(amount):
+	health = min(health + amount, max_health)
+	print("Healed:", amount, "HP =", health)
+	
 
 # Regenerasi health otomatis setiap timer berjalan
-func _on_regen_timer_timeout() -> void:
-	if health < 100:
-		health += 20
-		if health > 100:
-			health = 100
-	if health <= 0:
-		health = 0
+#func _on_regen_timer_timeout() -> void:
+	#if health < 100:
+		#health += 20
+		#if health > 100:
+			#health = 100
+	#if health <= 0:
+		#health = 0
 
 # Respawn untuk kembali hidup lagi
 func respawn():

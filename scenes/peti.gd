@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var items: Dictionary[InventoryItems, int] = {}
+@export var items: Dictionary[InventoryItem, int] = {}
 @onready var animations: AnimationPlayer = $AnimationPlayer
 @onready var item_start_pos: Vector2 = $ItemStartPos.position
 @onready var item_end_pos: Vector2 = $ItemEndPos.position
@@ -19,10 +19,10 @@ func interact(interacter: Node2D) -> void:
 	spawn_andcollect(interacter)
 
 func spawn_andcollect(interacter: Node2D) -> void:
-	for i: InventoryItems in items:
+	for i: InventoryItem in items:
 		for a in range(items[i]):
 			var sprite := Sprite2D.new()
-			sprite.texture = i.texture
+			sprite.texture = i.icon
 			sprite.position = item_start_pos
 			sprite.z_index = interacter.z_index + 1
 			add_child(sprite)
@@ -36,10 +36,10 @@ func spawn_andcollect(interacter: Node2D) -> void:
 			tween_collect.tween_callback(func ():
 				sprite.queue_free()
 				
-				# 🔽 Buat instance InventoryItem dari InventoryItems
-				var new_item := InventoryItem.new()
-				new_item.name = i.name
-				new_item.texture = i.texture
+				# 🔽 Buat instance InventoryItem dari InventoryItem
+				var new_item := i.duplicate(true)
+
+
 
 				# lalu masukkan ke inventory
 				interacter.inventory.insert(new_item)

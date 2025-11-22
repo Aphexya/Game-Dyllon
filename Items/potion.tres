@@ -1,14 +1,13 @@
-[gd_resource type="Resource" script_class="InventoryItems" load_steps=4 format=3 uid="uid://b1pi6k8islqo4"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://b1pi6k8islqo4"]
 
-[ext_resource type="Script" uid="uid://bru1vblvrfrri" path="res://Items/InventoryItems.gd" id="1_5vqjr"]
-[ext_resource type="Texture2D" uid="uid://domth0re47poh" path="res://Art 2/Item Pack/consumables/potion_of_health_4.png" id="2_t8xv6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eu55q"]
-atlas = ExtResource("2_t8xv6")
-region = Rect2(0, 0, 16, 16)
+[ext_resource type="Texture2D" uid="uid://dmi3np0kkrgj" path="res://Art/Items/potion_of_health_4.png" id="2_5vqjr"]
+[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="2_t8xv6"]
 
 [resource]
-script = ExtResource("1_5vqjr")
-texture = SubResource("AtlasTexture_eu55q")
-name = "potion"
+script = ExtResource("2_t8xv6")
+name = "Potion"
+icon = ExtResource("2_5vqjr")
+stackable = true
+effect_type = "heal"
+effect_value = 30
 metadata/_custom_type_script = "uid://bru1vblvrfrri"

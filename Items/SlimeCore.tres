@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dslb37odpa40q"]
 
-[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/inventoryItem.gd" id="1_j2itn"]
+[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="1_j2itn"]
 [ext_resource type="Texture2D" uid="uid://x4t7dxllqqb" path="res://Art/Items/Slime_Core.png" id="2_sx83j"]
 
 [resource]
@@ -8,4 +8,6 @@ script = ExtResource("1_j2itn")
 name = "Slime Core"
 icon = ExtResource("2_sx83j")
 stackable = true
+effect_type = ""
+effect_value = 0
 metadata/_custom_type_script = "uid://bwpb4mny1iq2c"
