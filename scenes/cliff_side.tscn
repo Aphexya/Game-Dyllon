@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_e10jm"]
 [ext_resource type="Script" uid="uid://dpaemacr7by8b" path="res://scripts/cliff_side.gd" id="1_v3mbj"]
-[ext_resource type="Texture2D" uid="uid://w45qu514vm2a" path="res://Art/Map Level 2/flooring.png" id="2_jcley"]
 [ext_resource type="PackedScene" uid="uid://djxj8h0uni4th" path="res://scenes/Collectables/black_sword.tscn" id="2_ygqrx"]
 [ext_resource type="PackedScene" uid="uid://j41me70c4lbl" path="res://scenes/Collectables/potion.tscn" id="3_71q3n"]
 [ext_resource type="Texture2D" uid="uid://djkfs057ljxnx" path="res://Art/Map Level 1/plains.png" id="3_v3mbj"]
@@ -21,8 +20,11 @@ scenes/3/scene = ExtResource("3_71q3n")
 texture = ExtResource("1_e10jm")
 0:0/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_axhr3"]
+load_path = "res://.godot/imported/flooring.png-105953809485aa3ebec71cadd17c9a99.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0riok"]
-texture = ExtResource("2_jcley")
+texture = SubResource("CompressedTexture2D_axhr3")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
