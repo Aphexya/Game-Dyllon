@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://425ixriotfo5"
-path="res://.godot/imported/Walls-export.png-fc39b17cc526aafbc4527d44df696839.ctex"
+uid="uid://lsyulmeadxv3"
+path="res://.godot/imported/Structure.png-fecaf4b52faaa1c5e7a60eee5398e48b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Map Level 4/Walls-export.png"
-dest_files=["res://.godot/imported/Walls-export.png-fc39b17cc526aafbc4527d44df696839.ctex"]
+source_file="res://Art/Map Level 4/Structure.png"
+dest_files=["res://.godot/imported/Structure.png-fecaf4b52faaa1c5e7a60eee5398e48b.ctex"]
 
 [params]
 

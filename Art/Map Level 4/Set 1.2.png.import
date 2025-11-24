@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lsyulmeadxv3"
-path="res://.godot/imported/Structure.png-0c758c514a1d8c22edfdbd0bbf0fa2c4.ctex"
+uid="uid://cepqhnwx3w7js"
+path="res://.godot/imported/Set 1.2.png-2a3e7171256fbe05cdb88e1cfcb007c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Map Level 5/Structure.png"
-dest_files=["res://.godot/imported/Structure.png-0c758c514a1d8c22edfdbd0bbf0fa2c4.ctex"]
+source_file="res://Art/Map Level 4/Set 1.2.png"
+dest_files=["res://.godot/imported/Set 1.2.png-2a3e7171256fbe05cdb88e1cfcb007c0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcgmeq55mnydy"
-path="res://.godot/imported/Set 1.png-31a60c5058733f42e48c0493477c8648.ctex"
+uid="uid://425ixriotfo5"
+path="res://.godot/imported/Walls-export.png-885a5878c7f0cd0cf25bad928e1c7c21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Set 1.png"
-dest_files=["res://.godot/imported/Set 1.png-31a60c5058733f42e48c0493477c8648.ctex"]
+source_file="res://Art/Map Level 5/Walls-export.png"
+dest_files=["res://.godot/imported/Walls-export.png-885a5878c7f0cd0cf25bad928e1c7c21.ctex"]
 
 [params]
 

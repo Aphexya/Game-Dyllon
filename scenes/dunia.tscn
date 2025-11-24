@@ -257,8 +257,8 @@ layer_3/tile_data = PackedInt32Array(262144, 131074, 6, 262145, 131074, 6, 26214
 layer_4/name = "Collectables"
 layer_4/y_sort_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("5_ofjyc")]
-position = Vector2(64, 153)
+[node name="player" parent="." instance=ExtResource("5_ofjyc")]
+position = Vector2(26, 157)
 
 [node name="enemy" parent="." instance=ExtResource("6_sjxbm")]
 position = Vector2(190, 150)
@@ -308,10 +308,9 @@ position = Vector2(64, 149)
 [node name="dunia2_transition_point" type="Area2D" parent="."]
 script = ExtResource("11_bmaxm")
 target_scene = "res://scenes/dunia2.tscn"
-spawn_pos = Vector2(200, 150)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dunia2_transition_point"]
-position = Vector2(686.5, -26.5)
+position = Vector2(687, -27)
 shape = SubResource("RectangleShape2D_bmaxm")
 
 [node name="cliffside_transition_point" type="Area2D" parent="."]

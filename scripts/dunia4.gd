@@ -25,4 +25,4 @@ func _ready():
 
 		global.use_transition_spawn = false
 
-	print("Spawn dunia2:", player.global_position)
+	print("Spawn dunia4:", player.global_position)

@@ -13,7 +13,7 @@ func _has_property(obj: Object, prop_name: String) -> bool:
 func _on_body_entered(body: Node) -> void:
 	if not body:
 		return
-	if body.name == "Player":
+	if body.name == "player":
 		print("Item dikolek:", name)
 		# aman: periksa dulu apakah properti 'inventory' ada
 		if _has_property(body, "inventory"):

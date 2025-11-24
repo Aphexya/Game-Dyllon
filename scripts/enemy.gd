@@ -37,7 +37,7 @@ func _physics_process(delta):
 
 # Deteksi saat player masuk/keluar area deteksi musuh
 func _on_detection_area_body_entered(body):
-	if body.name == "Player":
+	if body.name == "player":
 		player = body
 		player_chase = true
 	

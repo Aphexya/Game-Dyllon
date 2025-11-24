@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxcxyti0jo8qt"]
+[gd_scene load_steps=20 format=3 uid="uid://cxcxyti0jo8qt"]
 
 [ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_fcru5"]
 [ext_resource type="Script" uid="uid://c3fs47oeprfrt" path="res://scenes/dunia2.gd" id="1_n4k6k"]
@@ -7,7 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://chw6gbvcglq2b" path="res://scenes/player.tscn" id="4_1u66q"]
 [ext_resource type="PackedScene" uid="uid://ccmqbmsb0ldcc" path="res://scenes/checkpoint.tscn" id="6_kuyi0"]
 [ext_resource type="PackedScene" uid="uid://cec8l6vgem0pw" path="res://scenes/enemy.tscn" id="7_kuyi0"]
-[ext_resource type="PackedScene" uid="uid://uuestmu6qs05" path="res://scenes/chest.tscn" id="8_x0rqr"]
+[ext_resource type="Script" uid="uid://c0pj3bre3vkim" path="res://scripts/transition_point.gd" id="7_njc7g"]
+[ext_resource type="Script" uid="uid://wkry0vd35jv7" path="res://scenes/canvas_layer.gd" id="8_d5tgj"]
+[ext_resource type="PackedScene" uid="uid://b82m1upcje0aw" path="res://scenes/inventory_gui.tscn" id="9_njc7g"]
+[ext_resource type="PackedScene" uid="uid://dv7f4u6bi783i" path="res://scenes/peti.tscn" id="10_njc7g"]
+[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="11_tl62w"]
+[ext_resource type="Resource" uid="uid://bodp1swyymb4m" path="res://Items/key_fragment.tres" id="12_ryhcr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4k6k"]
 texture = ExtResource("1_fcru5")
@@ -247,6 +252,9 @@ sources/0 = SubResource("TileSetAtlasSource_n4k6k")
 sources/1 = SubResource("TileSetAtlasSource_kuyi0")
 sources/2 = SubResource("TileSetAtlasSource_x0rqr")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5tgj"]
+size = Vector2(84, 37)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yymiu"]
 size = Vector2(77.75, 38.25)
 
@@ -265,27 +273,56 @@ layer_1/tile_data = PackedInt32Array(851970, 327682, 0, 917506, 327682, 1, 98304
 layer_2/name = "Object"
 
 [node name="player" parent="." instance=ExtResource("4_1u66q")]
-position = Vector2(475, 451)
-
-[node name="checkpoint" parent="." instance=ExtResource("6_kuyi0")]
-position = Vector2(473, 396)
-
-[node name="enemy" parent="." instance=ExtResource("7_kuyi0")]
-position = Vector2(469, 329)
-
-[node name="chest" parent="." instance=ExtResource("8_x0rqr")]
-position = Vector2(168, 274)
+position = Vector2(474, 481)
 
 [node name="dunia3_transition_point" type="Area2D" parent="."]
+script = ExtResource("7_njc7g")
+target_scene = "res://scenes/dunia3.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dunia3_transition_point"]
-y_sort_enabled = true
-position = Vector2(456, -4)
-shape = SubResource("RectangleShape2D_yymiu")
+position = Vector2(459, -2)
+shape = SubResource("RectangleShape2D_d5tgj")
 
 [node name="dunia2_exitpoint" type="Area2D" parent="."]
+script = ExtResource("7_njc7g")
+target_scene = "res://scenes/dunia.tscn"
+spawn_pos = Vector2(688, 30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dunia2_exitpoint"]
 y_sort_enabled = true
 position = Vector2(472, 509)
 shape = SubResource("RectangleShape2D_yymiu")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(473, 482)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("8_d5tgj")
+
+[node name="InventoryGui" parent="CanvasLayer" instance=ExtResource("9_njc7g")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -88.0
+offset_right = 68.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="checkpoint" parent="." instance=ExtResource("6_kuyi0")]
+position = Vector2(472, 395)
+
+[node name="peti" parent="." instance=ExtResource("10_njc7g")]
+position = Vector2(472, 327)
+items = Dictionary[ExtResource("11_tl62w"), int]({
+ExtResource("12_ryhcr"): 1
+})
+
+[node name="enemy" parent="." instance=ExtResource("7_kuyi0")]
+position = Vector2(422, 333)
+
+[connection signal="body_entered" from="dunia3_transition_point" to="dunia3_transition_point" method="_on_body_entered"]
+[connection signal="body_entered" from="dunia2_exitpoint" to="dunia2_exitpoint" method="_on_body_entered"]

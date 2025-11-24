@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btvlhf16ppeej"
-path="res://.godot/imported/tilesWalls.png-eb323716bf8d31791cc70ea90dee7956.ctex"
+uid="uid://ca8bufcadx0xu"
+path="res://.godot/imported/tilesWalls.png-42a32595ee621176eee8879721541fbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Map Level 4/tilesWalls.png"
-dest_files=["res://.godot/imported/tilesWalls.png-eb323716bf8d31791cc70ea90dee7956.ctex"]
+source_file="res://Art/Map Level 5/tilesWalls.png"
+dest_files=["res://.godot/imported/tilesWalls.png-42a32595ee621176eee8879721541fbd.ctex"]
 
 [params]
 

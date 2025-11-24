@@ -381,15 +381,6 @@ wait_time = 0.5
 [node name="deal_attack_timer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="world_camera" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_right = 816
-limit_bottom = 500
-limit_smoothed = true
-rotation_smoothing_enabled = true
-
 [node name="healthbar" type="ProgressBar" parent="."]
 modulate = Color(0.223529, 1, 0.0980392, 1)
 offset_left = -9.0
@@ -411,6 +402,10 @@ script = ExtResource("3_qhqgy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent"]
 position = Vector2(0, -17)
 shape = SubResource("CircleShape2D_g2els")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_smoothed = true
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

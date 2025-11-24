@@ -4,12 +4,11 @@ extends Panel
 @onready var itemSprite: Sprite2D = $CenterContainer/Panel/item
 @onready var amountLabel: Label = $CenterContainer/Panel/Label
 
+func _ready():
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	connect("gui_input", Callable(self, "_on_gui_input"))
 
 func update(slot: InventorySlot):
-	if not is_instance_valid(itemSprite) or not is_instance_valid(backgroundSprite):
-		push_error("SlotGui: Sprite node tidak ditemukan!")
-		return
-
 	if !slot.item:
 		backgroundSprite.frame = 0
 		itemSprite.visible = false
@@ -21,22 +20,17 @@ func update(slot: InventorySlot):
 		amountLabel.visible = true
 		amountLabel.text = str(slot.amount)
 
-func _ready():
-	self.connect("gui_input", Callable(self, "_on_gui_input"))
-
-
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_use_this_item()
 
-
 func _use_this_item():
-	var player = get_tree().root.get_node("dunia/Player")
-
-	if player == null:
+	var players = get_tree().get_nodes_in_group("player")
+	if players.is_empty():
 		print("PLAYER NOT FOUND")
 		return
 
+	var player = players[0]
 	var inventory = player.inventory
 
 	if inventory == null:
@@ -45,5 +39,4 @@ func _use_this_item():
 
 	var slot_index = get_index()
 	var slot = inventory.slots[slot_index]
-
 	inventory.use_item(slot, player)

@@ -4,7 +4,7 @@ extends CharacterBody2D
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var max_health = 100
-var health = 70
+var health = 100
 var player_alive = true
 
 var attack_ip = false # status apakah player sedang menyerang
@@ -106,6 +106,17 @@ func arah_player(gerak):
 func player():
 	pass # hanya sebagai penanda bahwa ini node Player
 
+func set_camera_limit(tilemap: TileMap):
+	await get_tree().process_frame
+
+	var cam = $Camera2D
+	print("Camera found? => ", cam)
+
+	if cam == null:
+		print("❌ Kamera tidak ditemukan! Cek Player di scene ini.")
+		return
+
+	
 
 # Deteksi ketika musuh masuk ke area serangan player
 func _on_player_hitbox_body_entered(body: Node2D):
@@ -159,30 +170,6 @@ func _on_deal_attack_timer_timeout() -> void:
 	attack_ip = false
 	# Tidak perlu start timer lagi karena sudah one-shot
 
-
-## Mengaktifkan kamera sesuai scene aktif
-#func current_camera():
-	## Jika masih di main menu → semua kamera OFF
-	#if global.current_scene == "main_menu":
-		#$world_camera.enabled = false
-		#$cliffside_camera.enabled = false
-		#return
-		#
-	## Jika di world
-	#if global.current_scene == "world":
-		#$world_camera.enabled = true
-		#$cliffside_camera.enabled = false
-		#return
-#
-	## Jika di cliff_side
-	#if global.current_scene == "cliff_side":
-		#$world_camera.enabled = false
-		#$cliffside_camera.enabled = true
-		#return
-
-
-
-
 # Menampilkan dan memperbarui health bar player
 func update_health():
 	var healthbar = $healthbar
@@ -210,14 +197,17 @@ func heal(amount):
 
 # Respawn untuk kembali hidup lagi
 func respawn():
-	await get_tree().create_timer(0.5).timeout  # beri jeda 0.5 detik
-	var pos = global.checkpoint_scene_pos[global.current_scene]
+	await get_tree().create_timer(0.5).timeout  
 
-	if pos != Vector2(-999, -999):
-		global_position = pos
+	var scene_name = global.current_scene
+	var cp_pos = global.checkpoint_scene_pos.get(scene_name, Vector2(-999, -999))
+
+	if cp_pos != Vector2(-999, -999):
+		global_position = cp_pos
+		print("Respawn ke CHECKPOINT:", cp_pos)
 	else:
 		global_position = Vector2(global.player_start_posx, global.player_start_posy)
+		print("Respawn ke START POS:", global_position)
 
-	health = 100
+	health = max_health
 	player_alive = true
-	print("Respawned at:", global_position)

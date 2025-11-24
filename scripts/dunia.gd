@@ -1,37 +1,25 @@
 extends Node2D
 
-# Script untuk scene utama (world), menangani transisi ke cliff_side.
 func _ready():
-	if global.game_first_loading == true:
-		$Player.position.x = global.player_start_posx
-		$Player.position.y = global.player_start_posy
-	else: 
-		$Player.position.x = global.player_exit_cliffside_posx 
-		$Player.position.y = global.player_exit_cliffside_posy 
-		
+	await get_tree().process_frame
 
-func _process(delta):
-	change_scene()
+	var player = $player
+	var cam = player.get_node("Camera2D")
+	cam.make_current()
 
+	var tilemap = $TileMap
+	var rect = tilemap.get_used_rect()
+	var cell = tilemap.tile_set.tile_size
 
-# Pindah scene ke cliff_side
-func change_scene():
-	if global.transition_scene:
-		print("Fungsi change_scene() aktif")
-		print("Scene yg akan dibuka:", global.next_scene_path)
+	cam.limit_left   = rect.position.x * cell.x
+	cam.limit_top    = rect.position.y * cell.y
+	cam.limit_right  = cam.limit_left + rect.size.x * cell.x
+	cam.limit_bottom = cam.limit_top + rect.size.y * cell.y
 
-		if global.next_scene_path != "":
-			get_tree().change_scene_to_file(global.next_scene_path)
-
-			# SET ke FALSE agar tidak looping
-			global.transition_scene = false
-
-			global.game_first_loading = false
-			global.player_start_posx = global.next_spawn_pos.x
-			global.player_start_posy = global.next_spawn_pos.y
-			
-			global.finish_changescenes()
-
+	# ✅ HANYA pindahkan player jika datang dari scene lain
+	if global.next_spawn_pos != Vector2.ZERO:
+		player.global_position = global.next_spawn_pos
+		global.next_spawn_pos = Vector2.ZERO
 
 
 
