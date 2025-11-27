@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://ejc580sgw5ob"]
+
+[ext_resource type="Script" uid="uid://dsw0eylcs4em0" path="res://scripts/TimeScore.gd" id="1_x3gkt"]
+[ext_resource type="Texture2D" uid="uid://06ic824nwnbx" path="res://Art 2/Dungeon Crawler/ui (new)/menu_button.png" id="2_uugk1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jdcea"]
+texture = ExtResource("2_uugk1")
+
+[node name="TimeScore" type="CanvasLayer"]
+script = ExtResource("1_x3gkt")
+
+[node name="TimerBoard" type="Panel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_right = 88.0
+offset_bottom = 42.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_jdcea")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TimerBoard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -12.0
+offset_right = 47.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Minutes" type="Label" parent="TimerBoard/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "00 :"
+horizontal_alignment = 1
+
+[node name="Seconds" type="Label" parent="TimerBoard/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "00 ."
+horizontal_alignment = 1
+
+[node name="Hsecs" type="Label" parent="TimerBoard/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "000"
+horizontal_alignment = 1

@@ -202,7 +202,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
-text = "Exit"
+text = "Back"
 
 [node name="AudioControl" type="HSlider" parent="Options"]
 layout_mode = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bnmd3gotp2hv5"]
+[gd_scene load_steps=23 format=3 uid="uid://bnmd3gotp2hv5"]
 
 [ext_resource type="Texture2D" uid="uid://qgjr2eyvncri" path="res://Art/Map Level 5/spriteSheet_lightBulbSmallAnimation_16x16.png" id="1_407ck"]
 [ext_resource type="Script" uid="uid://0nv8ixxu1c3a" path="res://scripts/dunia5.gd" id="1_icote"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://wkry0vd35jv7" path="res://scenes/canvas_layer.gd" id="11_6qpmd"]
 [ext_resource type="PackedScene" uid="uid://cl6wkx6v1tdw5" path="res://scenes/Enemies/Samurai.tscn" id="12_6qpmd"]
 [ext_resource type="PackedScene" uid="uid://b82m1upcje0aw" path="res://scenes/inventory_gui.tscn" id="12_8iapf"]
+[ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="13_8iapf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o001w"]
 texture = ExtResource("1_407ck")
@@ -957,3 +958,5 @@ grow_vertical = 0
 
 [node name="Samurai" parent="." instance=ExtResource("12_6qpmd")]
 position = Vector2(536, 209)
+
+[node name="TimeScore" parent="." instance=ExtResource("13_8iapf")]

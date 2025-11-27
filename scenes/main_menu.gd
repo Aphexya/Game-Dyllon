@@ -20,6 +20,7 @@ func _ready():
 	
 func _on_start_pressed() -> void:
 	global.current_scene = "world"
+	GameTimer.start()
 	get_tree().change_scene_to_file("res://scenes/dunia.tscn")
 
 

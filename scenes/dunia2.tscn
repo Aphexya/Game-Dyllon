@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxcxyti0jo8qt"]
+[gd_scene load_steps=21 format=3 uid="uid://cxcxyti0jo8qt"]
 
 [ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_fcru5"]
 [ext_resource type="Script" uid="uid://c3fs47oeprfrt" path="res://scenes/dunia2.gd" id="1_n4k6k"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="11_tl62w"]
 [ext_resource type="Resource" uid="uid://bodp1swyymb4m" path="res://Items/key_fragment.tres" id="12_ryhcr"]
 [ext_resource type="PackedScene" uid="uid://cmr75xg6eo4e7" path="res://scenes/Enemies/Bat.tscn" id="13_ryhcr"]
+[ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="14_p8g8d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4k6k"]
 texture = ExtResource("1_fcru5")
@@ -326,6 +327,8 @@ position = Vector2(177, 396)
 
 [node name="Bat2" parent="." instance=ExtResource("13_ryhcr")]
 position = Vector2(177, 310)
+
+[node name="TimeScore" parent="." instance=ExtResource("14_p8g8d")]
 
 [connection signal="body_entered" from="dunia3_transition_point" to="dunia3_transition_point" method="_on_body_entered"]
 [connection signal="body_entered" from="dunia2_exitpoint" to="dunia2_exitpoint" method="_on_body_entered"]

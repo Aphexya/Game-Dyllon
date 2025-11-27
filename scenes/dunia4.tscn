@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cskdlvntldwk7"]
+[gd_scene load_steps=30 format=3 uid="uid://cskdlvntldwk7"]
 
 [ext_resource type="Texture2D" uid="uid://cebfwo5rfkrsw" path="res://Art/Map Level 4/Set 1.1.png" id="1_gm3ns"]
 [ext_resource type="Script" uid="uid://ddmp8l1pbdd5t" path="res://scripts/dunia4.gd" id="1_ve4tp"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dv7f4u6bi783i" path="res://scenes/peti.tscn" id="15_xvg0n"]
 [ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="16_rbh8m"]
 [ext_resource type="Resource" uid="uid://bodp1swyymb4m" path="res://Items/key_fragment.tres" id="17_0fnsn"]
+[ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="18_rbh8m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tri1d"]
 texture = ExtResource("1_gm3ns")
@@ -601,6 +602,8 @@ position = Vector2(224, 373)
 items = Dictionary[ExtResource("16_rbh8m"), int]({
 ExtResource("17_0fnsn"): 1
 })
+
+[node name="TimeScore" parent="." instance=ExtResource("18_rbh8m")]
 
 [connection signal="body_entered" from="dunia5_transition_point" to="dunia5_transition_point" method="_on_body_entered"]
 [connection signal="body_entered" from="dunia4_exitpoint" to="dunia4_exitpoint" method="_on_body_entered"]
