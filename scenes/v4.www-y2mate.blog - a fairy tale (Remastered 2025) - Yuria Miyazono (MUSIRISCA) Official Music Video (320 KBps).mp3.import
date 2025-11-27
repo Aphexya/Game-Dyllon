@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://scj6djgbeed1"
+path="res://.godot/imported/v4.www-y2mate.blog - a fairy tale (Remastered 2025) - Yuria Miyazono (MUSIRISCA) Official Music Video (320 KBps).mp3-7d92c7252ad5a7154aaa848043c2e1ae.mp3str"
+
+[deps]
+
+source_file="res://scenes/v4.www-y2mate.blog - a fairy tale (Remastered 2025) - Yuria Miyazono (MUSIRISCA) Official Music Video (320 KBps).mp3"
+dest_files=["res://.godot/imported/v4.www-y2mate.blog - a fairy tale (Remastered 2025) - Yuria Miyazono (MUSIRISCA) Official Music Video (320 KBps).mp3-7d92c7252ad5a7154aaa848043c2e1ae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

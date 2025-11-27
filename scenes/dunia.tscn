@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://o1wgs2ftfxto" path="res://Art/Map Level 1/fences.png" id="4_omm3i"]
 [ext_resource type="PackedScene" uid="uid://chw6gbvcglq2b" path="res://scenes/player.tscn" id="5_ofjyc"]
 [ext_resource type="Texture2D" uid="uid://cjbsccqb5iloi" path="res://Art 2/Cozy Valley/Tilesets/BASIC_terrain.png" id="6_mbtoj"]
-[ext_resource type="PackedScene" uid="uid://cec8l6vgem0pw" path="res://scenes/enemy.tscn" id="6_sjxbm"]
 [ext_resource type="PackedScene" uid="uid://j41me70c4lbl" path="res://scenes/Collectables/potion.tscn" id="7_mbtoj"]
 [ext_resource type="PackedScene" uid="uid://djxj8h0uni4th" path="res://scenes/Collectables/black_sword.tscn" id="8_ebeiv"]
 [ext_resource type="Script" uid="uid://wkry0vd35jv7" path="res://scenes/canvas_layer.gd" id="9_ofjyc"]
@@ -17,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="12_ulk4w"]
 [ext_resource type="Resource" uid="uid://b1pi6k8islqo4" path="res://Items/potion.tres" id="14_bmaxm"]
 [ext_resource type="PackedScene" uid="uid://ccmqbmsb0ldcc" path="res://scenes/checkpoint.tscn" id="16_ulk4w"]
+[ext_resource type="PackedScene" uid="uid://ckgc2bctggw5g" path="res://scenes/Enemies/Slime.tscn" id="17_bmaxm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofjyc"]
 texture = ExtResource("1_bisvx")
@@ -257,23 +257,11 @@ layer_3/tile_data = PackedInt32Array(262144, 131074, 6, 262145, 131074, 6, 26214
 layer_4/name = "Collectables"
 layer_4/y_sort_enabled = true
 
+[node name="checkpoint" parent="." instance=ExtResource("16_ulk4w")]
+position = Vector2(64, 149)
+
 [node name="player" parent="." instance=ExtResource("5_ofjyc")]
 position = Vector2(26, 157)
-
-[node name="enemy" parent="." instance=ExtResource("6_sjxbm")]
-position = Vector2(190, 150)
-
-[node name="enemy2" parent="." instance=ExtResource("6_sjxbm")]
-position = Vector2(341, 238)
-
-[node name="enemy3" parent="." instance=ExtResource("6_sjxbm")]
-position = Vector2(474, 218)
-
-[node name="enemy4" parent="." instance=ExtResource("6_sjxbm")]
-position = Vector2(648, 297)
-
-[node name="enemy5" parent="." instance=ExtResource("6_sjxbm")]
-position = Vector2(667, 117)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -302,9 +290,6 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="checkpoint" parent="." instance=ExtResource("16_ulk4w")]
-position = Vector2(64, 149)
-
 [node name="dunia2_transition_point" type="Area2D" parent="."]
 script = ExtResource("11_bmaxm")
 target_scene = "res://scenes/dunia2.tscn"
@@ -320,6 +305,21 @@ target_scene = "res://scenes/cliff_side.tscn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_transition_point"]
 position = Vector2(304, -21.5)
 shape = SubResource("RectangleShape2D_e7c52")
+
+[node name="Slime" parent="." instance=ExtResource("17_bmaxm")]
+position = Vector2(178, 154)
+
+[node name="Slime2" parent="." instance=ExtResource("17_bmaxm")]
+position = Vector2(322, 232)
+
+[node name="Slime3" parent="." instance=ExtResource("17_bmaxm")]
+position = Vector2(478, 219)
+
+[node name="Slime4" parent="." instance=ExtResource("17_bmaxm")]
+position = Vector2(644, 298)
+
+[node name="Slime5" parent="." instance=ExtResource("17_bmaxm")]
+position = Vector2(686, 101)
 
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_opened"]

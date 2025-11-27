@@ -1,0 +1,160 @@
+[gd_scene load_steps=25 format=3 uid="uid://by1jha6gvrxsj"]
+
+[ext_resource type="PackedScene" uid="uid://cec8l6vgem0pw" path="res://scenes/Enemies/Enemy_Base.tscn" id="1_6p4pk"]
+[ext_resource type="Texture2D" uid="uid://cf7dqup4n5umy" path="res://Art/characters/enemy/Demon/Hit.png" id="2_jsukk"]
+[ext_resource type="Texture2D" uid="uid://bh8yotdsnwh4s" path="res://Art/characters/enemy/Demon/Sprite.png" id="3_2mn1u"]
+[ext_resource type="Texture2D" uid="uid://dqkb2j2vohkjb" path="res://Art/characters/enemy/Demon/Idle.png" id="3_lf8ei"]
+[ext_resource type="Texture2D" uid="uid://bk48oliuywahn" path="res://Art/characters/enemy/Demon/Walk.png" id="4_jsukk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h64sm"]
+atlas = ExtResource("2_jsukk")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd5ny"]
+atlas = ExtResource("2_jsukk")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22f8c"]
+atlas = ExtResource("2_jsukk")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5yt5"]
+atlas = ExtResource("3_2mn1u")
+region = Rect2(0, 0, 37, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mn1u"]
+atlas = ExtResource("3_lf8ei")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abfmt"]
+atlas = ExtResource("3_lf8ei")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nvcf"]
+atlas = ExtResource("3_lf8ei")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipnrv"]
+atlas = ExtResource("3_lf8ei")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqp1g"]
+atlas = ExtResource("3_lf8ei")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty4oc"]
+atlas = ExtResource("4_jsukk")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3pvv"]
+atlas = ExtResource("4_jsukk")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whsrc"]
+atlas = ExtResource("4_jsukk")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7ogo"]
+atlas = ExtResource("4_jsukk")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yejf"]
+atlas = ExtResource("4_jsukk")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi6y3"]
+atlas = ExtResource("4_jsukk")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sd5ny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h64sm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd5ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22f8c")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5yt5")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mn1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abfmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nvcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipnrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqp1g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty4oc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3pvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whsrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7ogo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yejf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi6y3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lf8ei"]
+radius = 66.0076
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jsukk"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2mn1u"]
+radius = 35.0143
+
+[node name="Demon" instance=ExtResource("1_6p4pk")]
+enemy_name = "Demon"
+attack_damage = 40
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_sd5ny")
+
+[node name="CollisionShape2D" parent="detection_area" index="0"]
+shape = SubResource("CircleShape2D_lf8ei")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_jsukk")
+
+[node name="CollisionShape2D" parent="enemy_hitbox" index="0"]
+shape = SubResource("CircleShape2D_2mn1u")

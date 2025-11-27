@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5xeiyqkmaxj4"]
+[gd_scene load_steps=17 format=3 uid="uid://b5xeiyqkmaxj4"]
 
 [ext_resource type="Texture2D" uid="uid://d315hnqtny2vi" path="res://Art/Map Level 3/Dungeon_Tileset.png" id="1_qlxh0"]
 [ext_resource type="Script" uid="uid://c3x8ovwdd6h3v" path="res://scripts/dunia3.gd" id="1_rgi52"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://c0pj3bre3vkim" path="res://scripts/transition_point.gd" id="6_bpcuj"]
 [ext_resource type="Script" uid="uid://wkry0vd35jv7" path="res://scenes/canvas_layer.gd" id="6_hloym"]
 [ext_resource type="PackedScene" uid="uid://b82m1upcje0aw" path="res://scenes/inventory_gui.tscn" id="7_bpcuj"]
+[ext_resource type="PackedScene" uid="uid://biujoq3ksrdp4" path="res://scenes/Enemies/Frog.tscn" id="8_bpcuj"]
+[ext_resource type="PackedScene" uid="uid://dv7f4u6bi783i" path="res://scenes/peti.tscn" id="9_k7cf3"]
+[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="10_15jqr"]
+[ext_resource type="Resource" uid="uid://bodp1swyymb4m" path="res://Items/key_fragment.tres" id="11_t3v5u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rgi52"]
 texture = ExtResource("1_qlxh0")
@@ -171,11 +175,14 @@ layer_1/tile_data = PackedInt32Array(327691, 65536, 0, 327692, 131072, 0, 327693
 layer_2/name = "Object"
 layer_2/tile_data = PackedInt32Array(589826, 589824, 3, 589827, 589824, 3, 851994, 589824, 3, 851995, 589824, 3)
 
-[node name="player" parent="." instance=ExtResource("4_rkwwy")]
-position = Vector2(58, 193)
-
 [node name="checkpoint" parent="." instance=ExtResource("2_rkwwy")]
 position = Vector2(115, 183)
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(58, 193)
+
+[node name="player" parent="." instance=ExtResource("4_rkwwy")]
+position = Vector2(58, 193)
 
 [node name="dunia4_transition_point" type="Area2D" parent="."]
 script = ExtResource("6_bpcuj")
@@ -213,8 +220,14 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(58, 193)
+[node name="Frog" parent="." instance=ExtResource("8_bpcuj")]
+position = Vector2(201, 363)
+
+[node name="peti" parent="." instance=ExtResource("9_k7cf3")]
+position = Vector2(409, 68)
+items = Dictionary[ExtResource("10_15jqr"), int]({
+ExtResource("11_t3v5u"): 1
+})
 
 [connection signal="body_entered" from="dunia4_transition_point" to="dunia4_transition_point" method="_on_body_entered"]
 [connection signal="body_entered" from="dunia3_exitpoint" to="dunia3_exitpoint" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cskdlvntldwk7"]
+[gd_scene load_steps=29 format=3 uid="uid://cskdlvntldwk7"]
 
 [ext_resource type="Texture2D" uid="uid://cebfwo5rfkrsw" path="res://Art/Map Level 4/Set 1.1.png" id="1_gm3ns"]
 [ext_resource type="Script" uid="uid://ddmp8l1pbdd5t" path="res://scripts/dunia4.gd" id="1_ve4tp"]
@@ -10,10 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://g1vjb1frt8fu" path="res://Art/Map Level 4/Water.png" id="7_5y8r0"]
 [ext_resource type="PackedScene" uid="uid://chw6gbvcglq2b" path="res://scenes/player.tscn" id="8_xvg0n"]
 [ext_resource type="PackedScene" uid="uid://ccmqbmsb0ldcc" path="res://scenes/checkpoint.tscn" id="9_rbh8m"]
-[ext_resource type="PackedScene" uid="uid://uuestmu6qs05" path="res://scenes/chest.tscn" id="10_0fnsn"]
 [ext_resource type="Script" uid="uid://c0pj3bre3vkim" path="res://scripts/transition_point.gd" id="12_ay4rl"]
 [ext_resource type="Script" uid="uid://wkry0vd35jv7" path="res://scenes/canvas_layer.gd" id="12_dq20u"]
 [ext_resource type="PackedScene" uid="uid://b82m1upcje0aw" path="res://scenes/inventory_gui.tscn" id="13_ay4rl"]
+[ext_resource type="PackedScene" uid="uid://by1jha6gvrxsj" path="res://scenes/Enemies/Demon.tscn" id="14_ay4rl"]
+[ext_resource type="PackedScene" uid="uid://dv7f4u6bi783i" path="res://scenes/peti.tscn" id="15_xvg0n"]
+[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="16_rbh8m"]
+[ext_resource type="Resource" uid="uid://bodp1swyymb4m" path="res://Items/key_fragment.tres" id="17_0fnsn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tri1d"]
 texture = ExtResource("1_gm3ns")
@@ -545,20 +548,14 @@ layer_4/name = "Water2"
 layer_4/y_sort_enabled = true
 layer_4/tile_data = PackedInt32Array(196622, 196614, 0, 262158, 196614, 1, 458756, 262150, 0, 524292, 262150, 1)
 
-[node name="player" parent="." instance=ExtResource("8_xvg0n")]
-position = Vector2(143, 256)
-
 [node name="checkpoint" parent="." instance=ExtResource("9_rbh8m")]
 position = Vector2(146, 204)
 
-[node name="chest" parent="." instance=ExtResource("10_0fnsn")]
-position = Vector2(144, 85)
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(143, 256)
 
-[node name="chest2" parent="." instance=ExtResource("10_0fnsn")]
-position = Vector2(385, 58)
-
-[node name="chest3" parent="." instance=ExtResource("10_0fnsn")]
-position = Vector2(218, 469)
+[node name="player" parent="." instance=ExtResource("8_xvg0n")]
+position = Vector2(143, 256)
 
 [node name="dunia5_transition_point" type="Area2D" parent="."]
 script = ExtResource("12_ay4rl")
@@ -596,8 +593,14 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(143, 256)
+[node name="Demon" parent="." instance=ExtResource("14_ay4rl")]
+position = Vector2(358, 148)
+
+[node name="peti" parent="." instance=ExtResource("15_xvg0n")]
+position = Vector2(224, 373)
+items = Dictionary[ExtResource("16_rbh8m"), int]({
+ExtResource("17_0fnsn"): 1
+})
 
 [connection signal="body_entered" from="dunia5_transition_point" to="dunia5_transition_point" method="_on_body_entered"]
 [connection signal="body_entered" from="dunia4_exitpoint" to="dunia4_exitpoint" method="_on_body_entered"]

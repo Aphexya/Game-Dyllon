@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var attack_damage = 25
+@export var inventory: Inventory
+
 # Script untuk mengatur perilaku player: gerak, serangan, kamera, dan kesehatan.
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
@@ -7,12 +10,14 @@ var max_health = 100
 var health = 100
 var player_alive = true
 
+var current_enemy: Node = null
+
 var attack_ip = false # status apakah player sedang menyerang
 
 const kecepatan = 100
 var arah = "diam" # arah pergerakan player terakhir
 
-@export var inventory: Inventory
+
 
 func _ready():
 	add_to_group("player")
@@ -119,22 +124,28 @@ func set_camera_limit(tilemap: TileMap):
 	
 
 # Deteksi ketika musuh masuk ke area serangan player
+# callback
 func _on_player_hitbox_body_entered(body: Node2D):
 	if body.has_method("enemy"):
 		enemy_inattack_range = true
+		current_enemy = body
 
 func _on_player_hitbox_body_exited(body: Node2D):
 	if body.has_method("enemy"):
 		enemy_inattack_range = false
+		if body == current_enemy:
+			current_enemy = null
 
 
 # Mengatur logika serangan musuh ke player
 func enemy_attack():
-	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health -= 50
+	if enemy_inattack_range and enemy_attack_cooldown and current_enemy != null:
+		var dmg = current_enemy.attack_damage
+		health -= dmg
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print(health)
+		print("Player HP:", health, "took dmg:", dmg)
+
 
 
 func _on_attack_cooldown_timeout():

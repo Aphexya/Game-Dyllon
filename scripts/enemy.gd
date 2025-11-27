@@ -1,17 +1,24 @@
 extends CharacterBody2D
 
+@export var drop_item: InventoryItem
+@export var item_drop_scene: PackedScene
+
+@export var enemy_name: String = "Enemy"
+@export var speed: float = 40
+@export var max_health: int = 100
+@export var attack_damage: int = 20
+
 # Script untuk AI musuh (slime): mengejar player, menerima damage, dan menampilkan health bar.
-var speed = 40
+var health: int
 var player_chase = false
 var player = null
-var health = 100
 var player_inattack_zone = false
 var can_take_damage = true
 var is_dead = false  # Flag untuk mencegah logika berjalan setelah mati
 
-@export var drop_item: InventoryItem
-@export var item_drop_scene: PackedScene
-
+func _ready():
+	add_to_group("enemy")
+	health = max_health
 
 # Update posisi dan animasi musuh setiap frame
 func _physics_process(delta):
@@ -62,7 +69,7 @@ func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 func deal_with_damage():
 	if player_inattack_zone and global.player_current_attack == true:
 		if can_take_damage:
-			health -= 50
+			health -= player.attack_damage
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			print("slime health = ", health)
