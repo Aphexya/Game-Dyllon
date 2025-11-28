@@ -18,10 +18,19 @@ var player_inattack_zone = false
 var can_take_damage = true
 var is_dead = false  # Flag untuk mencegah logika berjalan setelah mati
 
+var spawn_position: Vector2
+
+
 func _ready():
 	add_to_group("enemy")
+	spawn_position = global_position
 	health = max_health
 
+func reset_enemy():
+	global_position = spawn_position
+	health = max_health
+	velocity = Vector2.ZERO
+	
 # Update posisi dan animasi musuh setiap frame
 func _physics_process(delta):
 	# Hentikan semua logika jika sudah mati

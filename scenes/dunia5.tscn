@@ -958,5 +958,6 @@ grow_vertical = 0
 
 [node name="Samurai" parent="." instance=ExtResource("12_6qpmd")]
 position = Vector2(536, 209)
+is_boss = true
 
 [node name="TimeScore" parent="." instance=ExtResource("13_8iapf")]

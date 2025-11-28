@@ -595,7 +595,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Demon" parent="." instance=ExtResource("14_ay4rl")]
-position = Vector2(358, 148)
+position = Vector2(393, 94)
 
 [node name="peti" parent="." instance=ExtResource("15_xvg0n")]
 position = Vector2(224, 373)

@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var player = $player
+
 func _ready():
 	await get_tree().process_frame
 
@@ -26,3 +28,13 @@ func _ready():
 		global.use_transition_spawn = false
 
 	print("Spawn dunia5:", player.global_position)
+
+func respawn_at_checkpoint():
+	var cp = global.checkpoint_scene_pos[global.current_scene]
+
+	if cp != Vector2(-999, -999):
+		player.global_position = cp
+
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.reset_enemy()
+		

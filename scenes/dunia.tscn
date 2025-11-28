@@ -328,7 +328,6 @@ position = Vector2(686, 101)
 [node name="Samurai" parent="." instance=ExtResource("19_uuxh2")]
 position = Vector2(113, 293)
 max_health = 50
-attack_damage = 1
 is_boss = true
 
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]

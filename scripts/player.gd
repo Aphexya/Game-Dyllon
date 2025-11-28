@@ -35,11 +35,15 @@ func _physics_process(delta):
 	update_health()
 	
 	# Jika health habis, player dianggap mati
-	if health <= 0:
+	if health <= 0 and player_alive:
 		player_alive = false
 		health = 0
 		print("player has been killed")
-		respawn()  # ganti dari queue_free() jadi panggil respawn()
+		await get_tree().create_timer(0.5).timeout
+		show_game_over()
+		
+
+
 
 
 # Mengatur gerakan player dan animasi saat bergerak
@@ -208,7 +212,6 @@ func heal(amount):
 
 # Respawn untuk kembali hidup lagi
 func respawn():
-	await get_tree().create_timer(0.5).timeout  
 
 	var scene_name = global.current_scene
 	var cp_pos = global.checkpoint_scene_pos.get(scene_name, Vector2(-999, -999))
@@ -222,3 +225,8 @@ func respawn():
 
 	health = max_health
 	player_alive = true
+	
+func show_game_over():
+	var game_over_scene = preload("res://scenes/GameOver.tscn").instantiate()
+	get_tree().current_scene.add_child(game_over_scene)
+	global.player_can_move = false

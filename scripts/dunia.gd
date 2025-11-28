@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var player = $player
+
 func _ready():
 	await get_tree().process_frame
 
@@ -20,7 +22,11 @@ func _ready():
 	if global.next_spawn_pos != Vector2.ZERO:
 		player.global_position = global.next_spawn_pos
 		global.next_spawn_pos = Vector2.ZERO
+		
+	var cp = global.checkpoint_scene_pos[global.current_scene]
 
+	if cp != Vector2(-999, -999):
+		player.global_position = cp
 
 
 func _on_inventory_gui_closed() -> void:
@@ -29,3 +35,12 @@ func _on_inventory_gui_closed() -> void:
 
 func _on_inventory_gui_opened() -> void:
 	global.player_can_move = false
+
+func respawn_at_checkpoint():
+	var cp = global.checkpoint_scene_pos[global.current_scene]
+
+	if cp != Vector2(-999, -999):
+		player.global_position = cp
+
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.reset_enemy()
