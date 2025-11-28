@@ -8,6 +8,8 @@ extends CharacterBody2D
 @export var max_health: int = 100
 @export var attack_damage: int = 20
 
+@export var is_boss: bool = false
+
 # Script untuk AI musuh (slime): mengejar player, menerima damage, dan menampilkan health bar.
 var health: int
 var player_chase = false
@@ -117,6 +119,12 @@ func die():
 	# Hapus enemy dari scene
 	spawn_drop()
 	queue_free()
+	
+	# ✅ Jika musuh ini boss, pindah ke Victory Screen
+	if is_boss:
+		GameTimer.stop()
+		print("BOSS DEFEATED - LOADING VICTORY SCREEN")
+		get_tree().change_scene_to_file("res://scenes/VictoryScreen.tscn")
 
 # Cooldown agar musuh tidak kena damage berulang terlalu cepat
 func _on_take_damage_cooldown_timeout() -> void:

@@ -180,10 +180,10 @@ layer_2/tile_data = PackedInt32Array(589826, 589824, 3, 589827, 589824, 3, 85199
 position = Vector2(115, 183)
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2(58, 193)
+position = Vector2(72, 192)
 
 [node name="player" parent="." instance=ExtResource("4_rkwwy")]
-position = Vector2(58, 193)
+position = Vector2(72, 192)
 
 [node name="dunia4_transition_point" type="Area2D" parent="."]
 script = ExtResource("6_bpcuj")

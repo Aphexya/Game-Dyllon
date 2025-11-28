@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbwekbtueeaun"]
+[gd_scene load_steps=16 format=3 uid="uid://cbwekbtueeaun"]
 
 [ext_resource type="Script" uid="uid://c40kh6lx3r4lq" path="res://scenes/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://beys8j0n7xajr" path="res://Art/Game Dyllon.png" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://cv88d425h5jvo" path="res://Art/Font/Blast Dragon D.otf" id="2_bqqt6"]
+[ext_resource type="FontFile" uid="uid://c5qexm0tus8ji" path="res://Art/Font/Minecraft.ttf" id="4_oa1go"]
 [ext_resource type="Script" uid="uid://dwiarmn0kgrve" path="res://scripts/audio_control.gd" id="4_wu84c"]
 [ext_resource type="AudioStream" uid="uid://dm1v1mubjo67p" path="res://Art/Music & Sfx/v4.www-y2mate.blog - a fairy tale (Remastered 2025) - Yuria Miyazono (MUSIRISCA) Official Music Video (320 KBps).mp3" id="5_8ln24"]
 [ext_resource type="Script" uid="uid://draj4wjrt6t5s" path="res://scripts/fullscreen_control.gd" id="5_rtw2f"]
@@ -121,6 +122,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oa1go")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
@@ -136,6 +138,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oa1go")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
@@ -151,6 +154,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oa1go")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
@@ -180,6 +184,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 54.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_oa1go")
 theme_override_font_sizes/font_size = 30
 text = "Options"
 horizontal_alignment = 1
@@ -197,6 +202,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oa1go")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
@@ -225,6 +231,7 @@ offset_left = 75.0
 offset_top = 141.0
 offset_right = 417.0
 offset_bottom = 214.0
+theme_override_fonts/font = ExtResource("4_oa1go")
 theme_override_font_sizes/font_size = 30
 text = "Fullscreen"
 icon_alignment = 1
