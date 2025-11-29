@@ -8,6 +8,7 @@ extends StaticBody2D
 var is_open: bool = false
 
 func interact(interacter: Node2D) -> void:
+	print("Peti interact triggered")
 	if is_open: return
 	
 	var inventory = interacter.get("inventory")
@@ -36,11 +37,8 @@ func spawn_andcollect(interacter: Node2D) -> void:
 			tween_collect.tween_callback(func ():
 				sprite.queue_free()
 				
-				# 🔽 Buat instance InventoryItem dari InventoryItem
-				var new_item := i.duplicate(true)
-
 
 
 				# lalu masukkan ke inventory
-				interacter.inventory.insert(new_item)
+				interacter.inventory.insert(i)
 			)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://caqc22oekle5"]
+[gd_scene load_steps=33 format=3 uid="uid://caqc22oekle5"]
 
 [ext_resource type="Script" uid="uid://23aqv6y2gp04" path="res://scripts/dunia.gd" id="1_5vhgi"]
 [ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_bisvx"]
@@ -15,12 +15,14 @@
 [ext_resource type="Script" uid="uid://c0pj3bre3vkim" path="res://scripts/transition_point.gd" id="11_bmaxm"]
 [ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="12_ulk4w"]
 [ext_resource type="Resource" uid="uid://b1pi6k8islqo4" path="res://Items/potion.tres" id="14_bmaxm"]
+[ext_resource type="Resource" uid="uid://bodp1swyymb4m" path="res://Items/key_fragment.tres" id="14_fh4lj"]
 [ext_resource type="PackedScene" uid="uid://ccmqbmsb0ldcc" path="res://scenes/checkpoint.tscn" id="16_ulk4w"]
 [ext_resource type="PackedScene" uid="uid://ckgc2bctggw5g" path="res://scenes/Enemies/Slime.tscn" id="17_bmaxm"]
 [ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="18_e7c52"]
 [ext_resource type="PackedScene" uid="uid://cl6wkx6v1tdw5" path="res://scenes/Enemies/Samurai.tscn" id="19_uuxh2"]
 [ext_resource type="PackedScene" uid="uid://581i30dgv63t" path="res://scenes/HUD.tscn" id="20_k1p2x"]
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="21_87w3h"]
+[ext_resource type="PackedScene" uid="uid://dygr08fsqyi1g" path="res://scenes/Door.tscn" id="22_x5tjg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofjyc"]
 texture = ExtResource("1_bisvx")
@@ -275,7 +277,8 @@ polygon = PackedVector2Array(10, -1, 268, 0, 267, -43, 340, -41, 339, 0, 658, 0,
 [node name="peti" parent="." instance=ExtResource("9_omm3i")]
 position = Vector2(63, 102)
 items = Dictionary[ExtResource("12_ulk4w"), int]({
-ExtResource("14_bmaxm"): 3
+ExtResource("14_bmaxm"): 3,
+ExtResource("14_fh4lj"): 3
 })
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -335,6 +338,9 @@ is_boss = true
 [node name="HUD" parent="." instance=ExtResource("20_k1p2x")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("21_87w3h")]
+
+[node name="Door" parent="." instance=ExtResource("22_x5tjg")]
+position = Vector2(65, 177)
 
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_opened"]

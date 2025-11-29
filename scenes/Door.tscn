@@ -1,0 +1,144 @@
+[gd_scene load_steps=20 format=3 uid="uid://dygr08fsqyi1g"]
+
+[ext_resource type="Script" uid="uid://cukrd80cy38b4" path="res://scripts/Door.gd" id="1_eyv6f"]
+[ext_resource type="Texture2D" uid="uid://bcdby8hxawijj" path="res://Art/Door boss/door_spritesheet.png" id="2_mg2as"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ebfc"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao1jx"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7q0m"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k7y2"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdo1k"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v12wq"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m78fr"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdj7o"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bx5k"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bb8g"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frobt"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2kkb"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1yte"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxhyx"]
+atlas = ExtResource("2_mg2as")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lch3g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ebfc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao1jx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7q0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k7y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdo1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v12wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m78fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdj7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bx5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bb8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frobt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2kkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1yte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxhyx")
+}],
+"loop": false,
+"name": &"open",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eyv6f"]
+radius = 43.0116
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg2as"]
+size = Vector2(34, 32)
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_eyv6f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lch3g")
+animation = &"open"
+frame = 12
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_eyv6f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_mg2as")

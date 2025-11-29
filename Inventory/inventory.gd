@@ -43,3 +43,11 @@ func use_item(slot: InventorySlot, player):
 		slot.item = null
 
 	updated.emit()
+	
+	
+func get_item_count(item_name: String) -> int:
+	var count = 0
+	for slot in slots:
+		if slot.item and slot.item.name == item_name:
+			count += slot.amount
+	return count
