@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://581i30dgv63t"]
+
+[ext_resource type="Script" uid="uid://bo13g4c7can06" path="res://scripts/HUD.gd" id="1_fls4u"]
+[ext_resource type="Texture2D" uid="uid://bub5xxvp2mws7" path="res://Art 2/Dungeon Crawler/ui (new)/pause_button.png" id="1_qpvh6"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_fls4u")
+
+[node name="ButtonMenu" type="Button" parent="."]
+offset_right = 70.0
+offset_bottom = 69.0
+
+[node name="TextureRect" type="TextureRect" parent="ButtonMenu"]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 68.0
+texture = ExtResource("1_qpvh6")
+expand_mode = 3
+stretch_mode = 5
+
+[connection signal="pressed" from="ButtonMenu" to="." method="_on_button_pressed"]

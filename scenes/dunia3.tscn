@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5xeiyqkmaxj4"]
+[gd_scene load_steps=20 format=3 uid="uid://b5xeiyqkmaxj4"]
 
 [ext_resource type="Texture2D" uid="uid://d315hnqtny2vi" path="res://Art/Map Level 3/Dungeon_Tileset.png" id="1_qlxh0"]
 [ext_resource type="Script" uid="uid://c3x8ovwdd6h3v" path="res://scripts/dunia3.gd" id="1_rgi52"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="10_15jqr"]
 [ext_resource type="Resource" uid="uid://bodp1swyymb4m" path="res://Items/key_fragment.tres" id="11_t3v5u"]
 [ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="12_15jqr"]
+[ext_resource type="PackedScene" uid="uid://581i30dgv63t" path="res://scenes/HUD.tscn" id="13_mqqnc"]
+[ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="14_ln5c1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rgi52"]
 texture = ExtResource("1_qlxh0")
@@ -229,6 +231,10 @@ ExtResource("11_t3v5u"): 1
 })
 
 [node name="TimeScore" parent="." instance=ExtResource("12_15jqr")]
+
+[node name="HUD" parent="." instance=ExtResource("13_mqqnc")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_ln5c1")]
 
 [connection signal="body_entered" from="dunia4_transition_point" to="dunia4_transition_point" method="_on_body_entered"]
 [connection signal="body_entered" from="dunia3_exitpoint" to="dunia3_exitpoint" method="_on_body_entered"]

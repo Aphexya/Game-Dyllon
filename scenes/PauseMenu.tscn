@@ -1,0 +1,144 @@
+[gd_scene load_steps=10 format=3 uid="uid://brllqp0xswy5v"]
+
+[ext_resource type="Script" uid="uid://dgmn6yb8bax4n" path="res://scripts/PauseMenu.gd" id="1_5w6ei"]
+[ext_resource type="Texture2D" uid="uid://bod0nwn6705le" path="res://Art 2/Ninja Adventure - Asset Pack/Ui/Dialog/FacesetBox.png" id="1_komsw"]
+[ext_resource type="FontFile" uid="uid://dyob02l12r2d7" path="res://Art/Font/Retro Gaming.ttf" id="2_5w6ei"]
+[ext_resource type="FontFile" uid="uid://c5qexm0tus8ji" path="res://Art/Font/Minecraft.ttf" id="3_jiu6o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_40atx"]
+texture = ExtResource("1_komsw")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yx35g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vd2mf"]
+bg_color = Color(0.47788, 0.47788, 0.47788, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abn1t"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ti4s"]
+bg_color = Color(1, 0.752941, 0.796078, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_5w6ei")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.5
+offset_top = -235.0
+offset_right = 346.5
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_40atx")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -171.0
+offset_right = 72.5
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_5w6ei")
+theme_override_font_sizes/font_size = 75
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainButtons" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -76.0
+offset_right = 176.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Resume" type="Button" parent="Panel/MainButtons"]
+modulate = Color(0.6, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jiu6o")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yx35g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vd2mf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_abn1t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ti4s")
+text = "Resume"
+
+[node name="MainMenu" type="Button" parent="Panel/MainButtons"]
+modulate = Color(0.6, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jiu6o")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yx35g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vd2mf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_abn1t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ti4s")
+text = "Main Menu"
+
+[node name="ExitGame" type="Button" parent="Panel/MainButtons"]
+modulate = Color(0.6, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jiu6o")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yx35g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vd2mf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_abn1t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ti4s")
+text = "Exit Game"
+
+[connection signal="pressed" from="Panel/MainButtons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/MainButtons/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Panel/MainButtons/ExitGame" to="." method="_on_exit_game_pressed"]

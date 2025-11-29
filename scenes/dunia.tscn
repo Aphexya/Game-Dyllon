@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://caqc22oekle5"]
+[gd_scene load_steps=31 format=3 uid="uid://caqc22oekle5"]
 
 [ext_resource type="Script" uid="uid://23aqv6y2gp04" path="res://scripts/dunia.gd" id="1_5vhgi"]
 [ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_bisvx"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://ckgc2bctggw5g" path="res://scenes/Enemies/Slime.tscn" id="17_bmaxm"]
 [ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="18_e7c52"]
 [ext_resource type="PackedScene" uid="uid://cl6wkx6v1tdw5" path="res://scenes/Enemies/Samurai.tscn" id="19_uuxh2"]
+[ext_resource type="PackedScene" uid="uid://581i30dgv63t" path="res://scenes/HUD.tscn" id="20_k1p2x"]
+[ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="21_87w3h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofjyc"]
 texture = ExtResource("1_bisvx")
@@ -329,6 +331,10 @@ position = Vector2(113, 293)
 max_health = 50
 attack_damage = 10
 is_boss = true
+
+[node name="HUD" parent="." instance=ExtResource("20_k1p2x")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("21_87w3h")]
 
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_opened"]
