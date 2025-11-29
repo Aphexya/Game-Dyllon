@@ -268,7 +268,7 @@ position = Vector2(26, 157)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(10, -1, 268, 0, 267, -43, 340, -41, 339, 0, 658, 0, 658, -52, 715, -51, 715, -1, 815, 0, 816, 274, 865, 270, 866, 321, 816, 319, 817, 511, 0, 512, -1, -1, -24, -29, -85, 19, -182, 370, -17, 589, 425, 631, 853, 525, 1036, 202, 839, -28, 479, -192, 133, -107, -7, -30, -24, -29)
+polygon = PackedVector2Array(10, -1, 268, 0, 267, -43, 340, -41, 339, 0, 658, 0, 658, -52, 715, -51, 715, -1, 815, 0, 816, 274, 865, 270, 866, 321, 816, 319, 817, 511, 0, 512, -1, -1, -24, -29, -85, 19, -182, 370, -17, 589, 425, 631, 628.619, 580.571, 853, 525, 1036, 202, 839, -28, 479, -192, 133, -107, -7, -30, -24, -29)
 
 [node name="peti" parent="." instance=ExtResource("9_omm3i")]
 position = Vector2(63, 102)
@@ -284,13 +284,12 @@ anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = -68.0
 offset_top = -88.0
 offset_right = 68.0
 offset_bottom = 0.0
-grow_horizontal = 2
 grow_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="dunia2_transition_point" type="Area2D" parent="."]
 script = ExtResource("11_bmaxm")
@@ -328,6 +327,7 @@ position = Vector2(686, 101)
 [node name="Samurai" parent="." instance=ExtResource("19_uuxh2")]
 position = Vector2(113, 293)
 max_health = 50
+attack_damage = 10
 is_boss = true
 
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]

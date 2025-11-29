@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=3 uid="uid://cklcre8742j5v"]
+
+[ext_resource type="Script" uid="uid://byvyhun7kpfb" path="res://scripts/IntroStory.gd" id="1_cgrw5"]
+[ext_resource type="FontFile" uid="uid://c2ohc36132ck" path="res://Art/Font/VCR_OSD_MONO_1.001.ttf" id="1_ufiat"]
+[ext_resource type="Texture2D" uid="uid://bsfbt17sbwtqd" path="res://Art 2/Ninja Adventure - Asset Pack/Ui/Dialog/DialogueBoxSimple.png" id="1_xmuf7"]
+[ext_resource type="FontFile" uid="uid://dyob02l12r2d7" path="res://Art/Font/Retro Gaming.ttf" id="2_vmv4y"]
+[ext_resource type="FontFile" uid="uid://b37sve6nxj3tr" path="res://Art/Font/Fipps-Regular.otf" id="3_xa1nr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xmuf7"]
+texture = ExtResource("1_xmuf7")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmv4y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgrw5"]
+bg_color = Color(0.47788, 0.47788, 0.47788, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa1nr"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsfs0"]
+bg_color = Color(1, 0.752941, 0.796078, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="IntroStory" type="CanvasLayer"]
+script = ExtResource("1_cgrw5")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 17.0
+offset_top = 32.0
+offset_right = 822.0
+offset_bottom = 441.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xmuf7")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -233.0
+offset_top = 33.0
+offset_right = 233.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xa1nr")
+theme_override_font_sizes/font_size = 40
+text = "PROLOGUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -341.5
+offset_top = -77.0
+offset_right = 341.5
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_vmv4y")
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/normal_font_size = 20
+text = "Di sebuah hari yang tenang, hiduplah seorang pemuda pemberani dari desa terpencil bernama Dyllon. Sejak kecil ia bermimpi menjadi petualang sejati, terinspirasi oleh legenda tentang Farthur sang Pemburu Naga, pahlawan yang namanya selalu diceritakan dari generasi ke generasi.
+
+Berbekal tekad dan rasa ingin tahu yang besar, Dyllon memulai petualangannya dengan misi sederhana: mengumpulkan lima inti slime di hutan dekat desa. Namun siapa sangka, pencarian yang tampak sepele itu justru membawanya ke sebuah goa misterius—tempat yang menyimpan tantangan, rahasia, dan mungkin takdir baru untuk Dyllon.
+
+Petualangan Dyllon pun dimulai.
+
+Misi Awal : Kumpulkan 5 Inti Core Slime di Hutan !!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonNext" type="Button" parent="Panel"]
+modulate = Color(0.6, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = 98.5
+offset_right = 61.0
+offset_bottom = 153.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ufiat")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vmv4y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cgrw5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xa1nr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wsfs0")
+text = "NEXT"
+
+[connection signal="pressed" from="Panel/ButtonNext" to="." method="_on_button_next_pressed"]
