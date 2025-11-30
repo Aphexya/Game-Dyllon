@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bnmd3gotp2hv5"]
+[gd_scene load_steps=26 format=3 uid="uid://bnmd3gotp2hv5"]
 
 [ext_resource type="Texture2D" uid="uid://qgjr2eyvncri" path="res://Art/Map Level 5/spriteSheet_lightBulbSmallAnimation_16x16.png" id="1_407ck"]
 [ext_resource type="Script" uid="uid://0nv8ixxu1c3a" path="res://scripts/dunia5.gd" id="1_icote"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="13_8iapf"]
 [ext_resource type="PackedScene" uid="uid://581i30dgv63t" path="res://scenes/HUD.tscn" id="14_obuaj"]
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="15_bd0b7"]
+[ext_resource type="AudioStream" uid="uid://o4b7yurp6ce7" path="res://Art/Audio/Music/Wuthering Waves, jixwang, VISION SOUND - With Glory I Shall Fall (320 KBps).mp3" id="16_bd0b7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o001w"]
 texture = ExtResource("1_407ck")
@@ -965,3 +966,7 @@ is_boss = true
 [node name="HUD" parent="." instance=ExtResource("14_obuaj")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("15_bd0b7")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_bd0b7")
+bus = &"Music"

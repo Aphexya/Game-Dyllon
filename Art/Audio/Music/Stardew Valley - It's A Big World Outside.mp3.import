@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmcuhweewb42m"
+path="res://.godot/imported/Stardew Valley - It's A Big World Outside.mp3-62e425eb52bbc69cb063717e6dbd33de.mp3str"
+
+[deps]
+
+source_file="res://Art/Audio/Music/Stardew Valley - It's A Big World Outside.mp3"
+dest_files=["res://.godot/imported/Stardew Valley - It's A Big World Outside.mp3-62e425eb52bbc69cb063717e6dbd33de.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

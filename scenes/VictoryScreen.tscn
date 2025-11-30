@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ts6ajggwkueb"]
+[gd_scene load_steps=12 format=3 uid="uid://ts6ajggwkueb"]
 
 [ext_resource type="Script" uid="uid://cxc5oigjbnnyn" path="res://scripts/VictoryScreen.gd" id="1_aemqt"]
 [ext_resource type="FontFile" uid="uid://c2ohc36132ck" path="res://Art/Font/VCR_OSD_MONO_1.001.ttf" id="2_aemqt"]
 [ext_resource type="Texture2D" uid="uid://bpeaypsjjow2c" path="res://Art 2/Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/BackgroundWood.png" id="2_yqmlf"]
 [ext_resource type="FontFile" uid="uid://dlvvcbh8od6hx" path="res://Art/Font/m42.TTF" id="3_kftox"]
 [ext_resource type="FontFile" uid="uid://c5qexm0tus8ji" path="res://Art/Font/Minecraft.ttf" id="3_yqmlf"]
+[ext_resource type="AudioStream" uid="uid://c5n1bysqudh5u" path="res://Art/Audio/Music/Final Fantasy I ost - Victory (320 KBps).mp3" id="6_kftox"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kftox"]
 texture = ExtResource("2_yqmlf")
@@ -159,5 +160,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7ixle")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_eybow")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mxqkx")
 text = "Back to Main Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_kftox")
+bus = &"Music"
 
 [connection signal="pressed" from="Control/Panel/BackMenu" to="." method="_on_back_menu_pressed"]

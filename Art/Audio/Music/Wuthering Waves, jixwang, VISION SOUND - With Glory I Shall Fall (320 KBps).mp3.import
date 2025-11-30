@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://o4b7yurp6ce7"
+path="res://.godot/imported/Wuthering Waves, jixwang, VISION SOUND - With Glory I Shall Fall (320 KBps).mp3-928f2b657f53023a8d7932a1c3ae7199.mp3str"
+
+[deps]
+
+source_file="res://Art/Audio/Music/Wuthering Waves, jixwang, VISION SOUND - With Glory I Shall Fall (320 KBps).mp3"
+dest_files=["res://.godot/imported/Wuthering Waves, jixwang, VISION SOUND - With Glory I Shall Fall (320 KBps).mp3-928f2b657f53023a8d7932a1c3ae7199.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

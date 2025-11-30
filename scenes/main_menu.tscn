@@ -1,12 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cbwekbtueeaun"]
+[gd_scene load_steps=15 format=3 uid="uid://cbwekbtueeaun"]
 
 [ext_resource type="Script" uid="uid://c40kh6lx3r4lq" path="res://scenes/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://beys8j0n7xajr" path="res://Art/Game Dyllon.png" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://cv88d425h5jvo" path="res://Art/Font/Blast Dragon D.otf" id="2_bqqt6"]
 [ext_resource type="FontFile" uid="uid://c5qexm0tus8ji" path="res://Art/Font/Minecraft.ttf" id="4_oa1go"]
 [ext_resource type="Script" uid="uid://dwiarmn0kgrve" path="res://scripts/audio_control.gd" id="4_wu84c"]
-[ext_resource type="AudioStream" uid="uid://dm1v1mubjo67p" path="res://Art/Music & Sfx/v4.www-y2mate.blog - a fairy tale (Remastered 2025) - Yuria Miyazono (MUSIRISCA) Official Music Video (320 KBps).mp3" id="5_8ln24"]
-[ext_resource type="Script" uid="uid://draj4wjrt6t5s" path="res://scripts/fullscreen_control.gd" id="5_rtw2f"]
+[ext_resource type="AudioStream" uid="uid://x8beg76q06tb" path="res://Art/Audio/Music/Stardew Valley OST - Stardew Valley Overture (320 KBps).mp3" id="5_rtw2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu84c"]
 texture = ExtResource("1_ekxnf")
@@ -164,6 +163,10 @@ text = "Exit"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rtw2f")
+bus = &"Music"
+
 [node name="Options" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -190,6 +193,66 @@ text = "Options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Music" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 75.0
+offset_top = 81.0
+offset_right = -340.0
+offset_bottom = 112.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_oa1go")
+theme_override_font_sizes/font_size = 30
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioControlMusic" type="HSlider" parent="Options"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 63.0
+offset_right = 416.0
+offset_bottom = 127.0
+theme_override_styles/slider = SubResource("StyleBoxLine_bqqt6")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_wu84c")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8ln24")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("4_wu84c")
+audio_bus_name = "Music"
+
+[node name="Sfx" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 75.0
+offset_top = 164.0
+offset_right = -340.0
+offset_bottom = 195.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_oa1go")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioControlSfx" type="HSlider" parent="Options"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 146.0
+offset_right = 416.0
+offset_bottom = 210.0
+theme_override_styles/slider = SubResource("StyleBoxLine_bqqt6")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_wu84c")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8ln24")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("4_wu84c")
+audio_bus_name = "Sfx"
+
 [node name="Back" type="Button" parent="Options"]
 modulate = Color(0.6, 1, 1, 1)
 layout_mode = 0
@@ -210,40 +273,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 text = "Back"
 
-[node name="AudioControl" type="HSlider" parent="Options"]
-layout_mode = 0
-offset_left = 70.0
-offset_top = 63.0
-offset_right = 416.0
-offset_bottom = 127.0
-theme_override_styles/slider = SubResource("StyleBoxLine_bqqt6")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_wu84c")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8ln24")
-max_value = 1.0
-step = 0.05
-value = 1.0
-script = ExtResource("4_wu84c")
-audio_bus_name = "Music"
-
-[node name="FullscreenControls" type="CheckButton" parent="Options"]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 141.0
-offset_right = 417.0
-offset_bottom = 214.0
-theme_override_fonts/font = ExtResource("4_oa1go")
-theme_override_font_sizes/font_size = 30
-text = "Fullscreen"
-icon_alignment = 1
-script = ExtResource("5_rtw2f")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_8ln24")
-bus = &"Music"
-
 [connection signal="pressed" from="MainButtons/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainButtons/Button2" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MainButtons/Button3" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="Options/AudioControlMusic" to="Options/AudioControlMusic" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/AudioControlSfx" to="Options/AudioControlSfx" method="_on_value_changed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_options_pressed"]
-[connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
-[connection signal="toggled" from="Options/FullscreenControls" to="Options/FullscreenControls" method="_on_toggled"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxcxyti0jo8qt"]
+[gd_scene load_steps=24 format=3 uid="uid://cxcxyti0jo8qt"]
 
 [ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_fcru5"]
 [ext_resource type="Script" uid="uid://c3fs47oeprfrt" path="res://scenes/dunia2.gd" id="1_n4k6k"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="14_p8g8d"]
 [ext_resource type="PackedScene" uid="uid://581i30dgv63t" path="res://scenes/HUD.tscn" id="15_ykpsp"]
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="16_552ac"]
+[ext_resource type="AudioStream" uid="uid://2j0wersd364d" path="res://Art/Audio/Music/Shattered Pixel Dungeon - Halls (OST) (320 KBps).mp3" id="17_552ac"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4k6k"]
 texture = ExtResource("1_fcru5")
@@ -333,6 +334,10 @@ position = Vector2(177, 310)
 [node name="HUD" parent="." instance=ExtResource("15_ykpsp")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("16_552ac")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_552ac")
+bus = &"Music"
 
 [connection signal="body_entered" from="dunia3_transition_point" to="dunia3_transition_point" method="_on_body_entered"]
 [connection signal="body_entered" from="dunia2_exitpoint" to="dunia2_exitpoint" method="_on_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://dygr08fsqyi1g"]
 
 [ext_resource type="Script" uid="uid://cukrd80cy38b4" path="res://scripts/Door.gd" id="1_eyv6f"]
-[ext_resource type="Texture2D" uid="uid://bcdby8hxawijj" path="res://Art/Door boss/door_spritesheet.png" id="2_mg2as"]
+[ext_resource type="Texture2D" uid="uid://bcdby8hxawijj" path="res://Art 2/Dungeon Crawler/tiles/wall/door_spritesheet.png" id="2_mg2as"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ebfc"]
 atlas = ExtResource("2_mg2as")

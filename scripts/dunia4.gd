@@ -5,6 +5,9 @@ extends Node2D
 func _ready():
 	await get_tree().process_frame
 
+	if not $AudioStreamPlayer.playing:
+		$AudioStreamPlayer.play()
+
 	var player = $player
 	var cam = player.get_node("Camera2D")
 	cam.make_current()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2j0wersd364d"
+path="res://.godot/imported/Shattered Pixel Dungeon - Halls (OST) (320 KBps).mp3-cdd159f7d36d7ab23a6abc72cfe4b416.mp3str"
+
+[deps]
+
+source_file="res://Art/Audio/Music/Shattered Pixel Dungeon - Halls (OST) (320 KBps).mp3"
+dest_files=["res://.godot/imported/Shattered Pixel Dungeon - Halls (OST) (320 KBps).mp3-cdd159f7d36d7ab23a6abc72cfe4b416.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

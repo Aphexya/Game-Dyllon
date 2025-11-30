@@ -3,7 +3,8 @@ extends Control
 @onready var options: Panel = $Options
 
 func _ready():
-	$AudioStreamPlayer.play()
+	if not $AudioStreamPlayer.playing:
+		$AudioStreamPlayer.play()
 	main_buttons.visible = true
 	options.visible = false
 	
@@ -33,4 +34,5 @@ func _on_exit_pressed() -> void:
 
 
 func _on_back_options_pressed() -> void:
-	_ready()
+	main_buttons.visible = true
+	options.visible = false

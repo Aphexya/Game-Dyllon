@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfnqi8qc44kao"
+path="res://.godot/imported/Pixel Dungeon OST Main Theme (320 KBps).mp3-026c3a520ac6def1fdb1e04cf57dd55e.mp3str"
+
+[deps]
+
+source_file="res://Art/Audio/Music/Pixel Dungeon OST Main Theme (320 KBps).mp3"
+dest_files=["res://.godot/imported/Pixel Dungeon OST Main Theme (320 KBps).mp3-026c3a520ac6def1fdb1e04cf57dd55e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

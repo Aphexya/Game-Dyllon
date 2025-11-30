@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cl6wkx6v1tdw5" path="res://scenes/Enemies/Samurai.tscn" id="19_uuxh2"]
 [ext_resource type="PackedScene" uid="uid://581i30dgv63t" path="res://scenes/HUD.tscn" id="20_k1p2x"]
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="21_87w3h"]
-[ext_resource type="PackedScene" uid="uid://dygr08fsqyi1g" path="res://scenes/Door.tscn" id="22_x5tjg"]
+[ext_resource type="AudioStream" uid="uid://cfx4n32c3wirs" path="res://Art/Audio/Music/Ciaccona Ultimate Song Full Version Wuthering Waves (320 KBps).mp3" id="24_1xiup"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofjyc"]
 texture = ExtResource("1_bisvx")
@@ -309,7 +309,7 @@ script = ExtResource("11_bmaxm")
 target_scene = "res://scenes/cliff_side.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_transition_point"]
-position = Vector2(304, -21.5)
+position = Vector2(852, 296)
 shape = SubResource("RectangleShape2D_e7c52")
 
 [node name="Slime" parent="." instance=ExtResource("17_bmaxm")]
@@ -339,8 +339,9 @@ is_boss = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("21_87w3h")]
 
-[node name="Door" parent="." instance=ExtResource("22_x5tjg")]
-position = Vector2(65, 177)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_1xiup")
+bus = &"Music"
 
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_opened"]

@@ -3,6 +3,8 @@ extends CanvasLayer
 @onready var label_time = $Control/Panel/LabelTime
 
 func _ready():
+	if not $AudioStreamPlayer.playing:
+		$AudioStreamPlayer.play()
 	var t = GameTimer.get_time_data()
 
 	label_time.text = "Time : %02d:%02d.%03d" % [t.minutes, t.seconds, t.msec]
