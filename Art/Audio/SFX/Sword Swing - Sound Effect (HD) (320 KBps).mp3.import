@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwt274vn3g7xw"
+path="res://.godot/imported/Sword Swing - Sound Effect (HD) (320 KBps).mp3-a859c14f5c1719ed308cc4906dcc8398.mp3str"
+
+[deps]
+
+source_file="res://Art/Audio/SFX/Sword Swing - Sound Effect (HD) (320 KBps).mp3"
+dest_files=["res://.godot/imported/Sword Swing - Sound Effect (HD) (320 KBps).mp3-a859c14f5c1719ed308cc4906dcc8398.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

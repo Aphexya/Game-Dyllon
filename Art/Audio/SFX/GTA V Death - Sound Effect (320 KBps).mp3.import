@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c66y771ypegxs"
+path="res://.godot/imported/GTA V Death - Sound Effect (320 KBps).mp3-088c4f251ef4026567a608590618204e.mp3str"
+
+[deps]
+
+source_file="res://Art/Audio/SFX/GTA V Death - Sound Effect (320 KBps).mp3"
+dest_files=["res://.godot/imported/GTA V Death - Sound Effect (320 KBps).mp3-088c4f251ef4026567a608590618204e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://cec8l6vgem0pw"]
+[gd_scene load_steps=29 format=3 uid="uid://cec8l6vgem0pw"]
 
 [ext_resource type="Script" uid="uid://odhpwepdttq5" path="res://scripts/enemy.gd" id="1_ugxj2"]
 [ext_resource type="Resource" uid="uid://dslb37odpa40q" path="res://Items/SlimeCore.tres" id="2_1g0w3"]
 [ext_resource type="PackedScene" uid="uid://bb06ofayu2e6t" path="res://scenes/Collectables/drop_item.tscn" id="3_clhjt"]
 [ext_resource type="Texture2D" uid="uid://urvlycs63ixp" path="res://Art/characters/enemy/Slime/slime.png" id="4_74g35"]
+[ext_resource type="AudioStream" uid="uid://ck73haixgwqev" path="res://Art/Audio/SFX/SFX Character - Enemy Hit - Type A (320 KBps).mp3" id="5_1g0w3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("4_74g35")
@@ -210,6 +211,12 @@ offset_right = 133.0
 offset_bottom = 31.0
 scale = Vector2(0.1, 0.1)
 show_percentage = false
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="HitImpact" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_1g0w3")
+bus = &"Sfx"
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

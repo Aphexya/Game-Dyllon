@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7mc0gwddi0tb"]
+[gd_scene load_steps=12 format=3 uid="uid://c7mc0gwddi0tb"]
 
 [ext_resource type="Texture2D" uid="uid://cif8scanxx478" path="res://Art 2/Ninja Adventure - Asset Pack/Ui/Receptacle/Receptacle Rectangle/BackgroundBamboo.png" id="1_4noiy"]
 [ext_resource type="Script" uid="uid://cr51uu1f072lw" path="res://scripts/GameOver.gd" id="1_gijjb"]
 [ext_resource type="FontFile" uid="uid://dlvvcbh8od6hx" path="res://Art/Font/m42.TTF" id="2_gijjb"]
 [ext_resource type="FontFile" uid="uid://c5qexm0tus8ji" path="res://Art/Font/Minecraft.ttf" id="3_88ekj"]
 [ext_resource type="FontFile" uid="uid://c2ohc36132ck" path="res://Art/Font/VCR_OSD_MONO_1.001.ttf" id="4_0winm"]
+[ext_resource type="AudioStream" uid="uid://bqhr1aydqfa7l" path="res://Art/Audio/Music/SUPER MARIO - game over - sound effect (320 KBps).mp3" id="6_88ekj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j3qfp"]
 texture = ExtResource("1_4noiy")
@@ -154,6 +155,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_8dkuh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0icj0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5fq7v")
 text = "NO"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_88ekj")
+bus = &"Music"
 
 [connection signal="pressed" from="Panel/Label/ButtonYes" to="." method="_on_button_yes_pressed"]
 [connection signal="pressed" from="Panel/Label/ButtonNo" to="." method="_on_button_no_pressed"]

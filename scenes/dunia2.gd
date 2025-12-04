@@ -4,10 +4,10 @@ extends Node2D
 
 func _ready():
 	await get_tree().process_frame
-	
+
 	if not $AudioStreamPlayer.playing:
 		$AudioStreamPlayer.play()
-		
+
 	var player = $player
 	var cam = player.get_node("Camera2D")
 	cam.make_current()
@@ -30,7 +30,7 @@ func _ready():
 
 		global.use_transition_spawn = false
 
-	print("Spawn dunia2:", player.global_position)
+	print("Spawn dunia3:", player.global_position)
 
 func respawn_at_checkpoint():
 	var cp = global.checkpoint_scene_pos[global.current_scene]

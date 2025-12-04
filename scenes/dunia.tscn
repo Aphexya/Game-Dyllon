@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://caqc22oekle5"]
+[gd_scene load_steps=31 format=3 uid="uid://caqc22oekle5"]
 
 [ext_resource type="Script" uid="uid://23aqv6y2gp04" path="res://scripts/dunia.gd" id="1_5vhgi"]
 [ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_bisvx"]
@@ -15,11 +15,9 @@
 [ext_resource type="Script" uid="uid://c0pj3bre3vkim" path="res://scripts/transition_point.gd" id="11_bmaxm"]
 [ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="12_ulk4w"]
 [ext_resource type="Resource" uid="uid://b1pi6k8islqo4" path="res://Items/potion.tres" id="14_bmaxm"]
-[ext_resource type="Resource" uid="uid://bodp1swyymb4m" path="res://Items/key_fragment.tres" id="14_fh4lj"]
 [ext_resource type="PackedScene" uid="uid://ccmqbmsb0ldcc" path="res://scenes/checkpoint.tscn" id="16_ulk4w"]
 [ext_resource type="PackedScene" uid="uid://ckgc2bctggw5g" path="res://scenes/Enemies/Slime.tscn" id="17_bmaxm"]
 [ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="18_e7c52"]
-[ext_resource type="PackedScene" uid="uid://cl6wkx6v1tdw5" path="res://scenes/Enemies/Samurai.tscn" id="19_uuxh2"]
 [ext_resource type="PackedScene" uid="uid://581i30dgv63t" path="res://scenes/HUD.tscn" id="20_k1p2x"]
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="21_87w3h"]
 [ext_resource type="AudioStream" uid="uid://cfx4n32c3wirs" path="res://Art/Audio/Music/Ciaccona Ultimate Song Full Version Wuthering Waves (320 KBps).mp3" id="24_1xiup"]
@@ -267,7 +265,7 @@ layer_4/y_sort_enabled = true
 position = Vector2(64, 149)
 
 [node name="player" parent="." instance=ExtResource("5_ofjyc")]
-position = Vector2(26, 157)
+position = Vector2(24, 156)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -277,8 +275,7 @@ polygon = PackedVector2Array(10, -1, 268, 0, 267, -43, 340, -41, 339, 0, 658, 0,
 [node name="peti" parent="." instance=ExtResource("9_omm3i")]
 position = Vector2(63, 102)
 items = Dictionary[ExtResource("12_ulk4w"), int]({
-ExtResource("14_bmaxm"): 3,
-ExtResource("14_fh4lj"): 3
+ExtResource("14_bmaxm"): 3
 })
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -307,6 +304,7 @@ shape = SubResource("RectangleShape2D_bmaxm")
 [node name="cliffside_transition_point" type="Area2D" parent="."]
 script = ExtResource("11_bmaxm")
 target_scene = "res://scenes/cliff_side.tscn"
+spawn_pos = Vector2(158, 254)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_transition_point"]
 position = Vector2(852, 296)
@@ -329,15 +327,10 @@ position = Vector2(686, 101)
 
 [node name="TimeScore" parent="." instance=ExtResource("18_e7c52")]
 
-[node name="Samurai" parent="." instance=ExtResource("19_uuxh2")]
-position = Vector2(113, 293)
-max_health = 50
-attack_damage = 10
-is_boss = true
-
 [node name="HUD" parent="." instance=ExtResource("20_k1p2x")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("21_87w3h")]
+visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_1xiup")

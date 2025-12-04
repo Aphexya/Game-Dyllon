@@ -81,6 +81,7 @@ func deal_with_damage():
 	if player_inattack_zone and global.player_current_attack == true:
 		if can_take_damage:
 			health -= player.attack_damage
+			$Audio/HitImpact.play()
 			$take_damage_cooldown.start()
 			can_take_damage = false
 			print("slime health = ", health)

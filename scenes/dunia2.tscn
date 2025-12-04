@@ -283,7 +283,7 @@ position = Vector2(472, 395)
 position = Vector2(473, 482)
 
 [node name="player" parent="." instance=ExtResource("4_1u66q")]
-position = Vector2(474, 481)
+position = Vector2(473, 482)
 
 [node name="peti" parent="." instance=ExtResource("10_njc7g")]
 position = Vector2(460, 123)
@@ -334,6 +334,7 @@ position = Vector2(177, 310)
 [node name="HUD" parent="." instance=ExtResource("15_ykpsp")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("16_552ac")]
+visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_552ac")

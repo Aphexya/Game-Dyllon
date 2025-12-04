@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dilptxnv01wmc"]
+[gd_scene load_steps=29 format=4 uid="uid://dilptxnv01wmc"]
 
 [ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_e10jm"]
 [ext_resource type="Script" uid="uid://dpaemacr7by8b" path="res://scripts/cliff_side.gd" id="1_v3mbj"]
@@ -10,6 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://dv7f4u6bi783i" path="res://scenes/peti.tscn" id="9_71q3n"]
 [ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="10_pb76u"]
 [ext_resource type="Resource" uid="uid://b1pi6k8islqo4" path="res://Items/potion.tres" id="11_5q6pw"]
+[ext_resource type="Script" uid="uid://c0pj3bre3vkim" path="res://scripts/transition_point.gd" id="11_pb76u"]
+[ext_resource type="Script" uid="uid://wkry0vd35jv7" path="res://scenes/canvas_layer.gd" id="12_f2b6w"]
+[ext_resource type="PackedScene" uid="uid://b82m1upcje0aw" path="res://scenes/inventory_gui.tscn" id="13_siq6e"]
+[ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="14_xtcm8"]
+[ext_resource type="PackedScene" uid="uid://581i30dgv63t" path="res://scenes/HUD.tscn" id="15_qoc16"]
+[ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="16_00ybc"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_axhr3"]
 resource_name = "Collectables"
@@ -21,7 +27,6 @@ texture = ExtResource("1_e10jm")
 0:0/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_axhr3"]
-load_path = "res://.godot/imported/flooring.png-105953809485aa3ebec71cadd17c9a99.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0riok"]
 texture = SubResource("CompressedTexture2D_axhr3")
@@ -212,8 +217,8 @@ texture = ExtResource("6_0riok")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_axhr3")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocn37"]
-size = Vector2(105, 33)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q6pw"]
+size = Vector2(102, 35)
 
 [node name="cliff_side" type="Node2D"]
 y_sort_enabled = true
@@ -254,23 +259,46 @@ tile_set = SubResource("TileSet_pb76u")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
 polygon = PackedVector2Array(79, 33, 274, 33, 274, 176, 258, 194, 212, 195, 211, 241, 212, 310, 108, 308, 110, 244, 97, 225, 80, 209, 64, 190, 48, 176, 46, 65, 63, 62, 63, 45, 79, 44, 19, -17, -34, 100, -11, 306, 172, 345, 393, 300, 448, 124, 378, -29, 183, -99, 43, -83, 80, 46)
 
-[node name="player" parent="." instance=ExtResource("4_jcley")]
-y_sort_enabled = true
-position = Vector2(158, 254)
-
-[node name="cliffside_exitpoint" type="Area2D" parent="."]
-y_sort_enabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_exitpoint"]
-y_sort_enabled = true
-position = Vector2(161.5, 291.5)
-shape = SubResource("RectangleShape2D_ocn37")
-
 [node name="peti" parent="." instance=ExtResource("9_71q3n")]
 position = Vector2(171, 78)
 items = Dictionary[ExtResource("10_pb76u"), int]({
 ExtResource("11_5q6pw"): 5
 })
 
-[connection signal="body_entered" from="cliffside_exitpoint" to="." method="_on_cliffside_exitpoint_body_entered"]
-[connection signal="body_exited" from="cliffside_exitpoint" to="." method="_on_cliffside_exitpoint_body_exited"]
+[node name="dunia4_exitpoint" type="Area2D" parent="."]
+script = ExtResource("11_pb76u")
+target_scene = "res://scenes/dunia.tscn"
+spawn_pos = Vector2(800, 309)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dunia4_exitpoint"]
+position = Vector2(161, 287.5)
+shape = SubResource("RectangleShape2D_5q6pw")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(158, 241)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("12_f2b6w")
+
+[node name="InventoryGui" parent="CanvasLayer" instance=ExtResource("13_siq6e")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -68.0
+offset_top = -88.0
+offset_right = 68.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="TimeScore" parent="." instance=ExtResource("14_xtcm8")]
+
+[node name="HUD" parent="." instance=ExtResource("15_qoc16")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("16_00ybc")]
+visible = false
+
+[node name="player" parent="." instance=ExtResource("4_jcley")]
+position = Vector2(158, 241)
+
+[connection signal="body_entered" from="dunia4_exitpoint" to="dunia4_exitpoint" method="_on_body_entered"]

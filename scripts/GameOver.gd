@@ -2,6 +2,8 @@ extends CanvasLayer
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	if not $AudioStreamPlayer.playing:
+		$AudioStreamPlayer.play()
 	get_tree().paused = true
 
 

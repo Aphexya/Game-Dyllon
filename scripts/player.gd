@@ -38,6 +38,7 @@ func _physics_process(delta):
 	if health <= 0 and player_alive:
 		player_alive = false
 		health = 0
+		$Audio/DeathSound.play()
 		print("player has been killed")
 		await get_tree().create_timer(0.5).timeout
 		show_game_over()
@@ -79,7 +80,12 @@ func gerak_player(delta):
 	# Update animasi hanya jika tidak sedang menyerang
 	if !attack_ip:
 		arah_player(is_moving)
-	
+	# FOOTSTEP SFX
+	if is_moving and !$Audio/Footstep.playing:
+		$Audio/Footstep.play()
+	elif !is_moving:
+		$Audio/Footstep.stop()
+
 	move_and_slide()
 
 
@@ -146,6 +152,7 @@ func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown and current_enemy != null:
 		var dmg = current_enemy.attack_damage
 		health -= dmg
+		#$Audio/PlayerDamaged.play()
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print("Player HP:", health, "took dmg:", dmg)
@@ -161,6 +168,7 @@ func attack():
 	var arah_sekarang = arah
 	
 	if Input.is_action_just_pressed("attack"):
+		$Audio/SwordSwing.play()
 		global.player_current_attack = true
 		attack_ip = true
 		
@@ -183,6 +191,7 @@ func attack():
 func _on_deal_attack_timer_timeout() -> void:
 	global.player_current_attack = false
 	attack_ip = false
+	
 	# Tidak perlu start timer lagi karena sudah one-shot
 
 # Menampilkan dan memperbarui health bar player
@@ -198,6 +207,7 @@ func update_health():
 
 func heal(amount):
 	health = min(health + amount, max_health)
+	$Audio/HealSound.play()
 	print("Healed:", amount, "HP =", health)
 	
 
@@ -212,6 +222,7 @@ func heal(amount):
 
 # Respawn untuk kembali hidup lagi
 func respawn():
+	#$Audio/RespawnSound.play()
 
 	var scene_name = global.current_scene
 	var cp_pos = global.checkpoint_scene_pos.get(scene_name, Vector2(-999, -999))

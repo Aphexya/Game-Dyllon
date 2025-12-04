@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7mnnq3bg206c"
+path="res://.godot/imported/Concrete Footsteps sound effect SFX (320 KBps).mp3-e996b54dee01eed91fe451c1a36692e0.mp3str"
+
+[deps]
+
+source_file="res://Art/Audio/SFX/Concrete Footsteps sound effect SFX (320 KBps).mp3"
+dest_files=["res://.godot/imported/Concrete Footsteps sound effect SFX (320 KBps).mp3-e996b54dee01eed91fe451c1a36692e0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
