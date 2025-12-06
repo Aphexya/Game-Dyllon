@@ -236,6 +236,7 @@ ExtResource("11_t3v5u"): 1
 [node name="HUD" parent="." instance=ExtResource("13_mqqnc")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("14_ln5c1")]
+visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_ln5c1")

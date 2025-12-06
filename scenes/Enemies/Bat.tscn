@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://cmr75xg6eo4e7"]
+[gd_scene load_steps=26 format=3 uid="uid://cmr75xg6eo4e7"]
 
 [ext_resource type="PackedScene" uid="uid://cec8l6vgem0pw" path="res://scenes/Enemies/Enemy_Base.tscn" id="1_pa2t3"]
+[ext_resource type="Resource" uid="uid://b1pi6k8islqo4" path="res://Items/potion.tres" id="2_5mdof"]
 [ext_resource type="Texture2D" uid="uid://urvlycs63ixp" path="res://Art/characters/enemy/Slime/slime.png" id="2_g6dwa"]
 [ext_resource type="Texture2D" uid="uid://i6153jlkviiv" path="res://Art/characters/enemy/Bat/Enemy.png" id="3_m7ej4"]
+[ext_resource type="PackedScene" uid="uid://j41me70c4lbl" path="res://scenes/Collectables/potion.tscn" id="3_v5fsp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
 atlas = ExtResource("2_g6dwa")
@@ -149,7 +151,10 @@ radius = 8.24621
 radius = 21.0238
 
 [node name="Bat" instance=ExtResource("1_pa2t3")]
+drop_item = ExtResource("2_5mdof")
+item_drop_scene = ExtResource("3_v5fsp")
 enemy_name = "Bat"
+attack_damage = 10
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_lwl61")

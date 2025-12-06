@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="14_p8g8d"]
 [ext_resource type="PackedScene" uid="uid://581i30dgv63t" path="res://scenes/HUD.tscn" id="15_ykpsp"]
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="16_552ac"]
-[ext_resource type="AudioStream" uid="uid://2j0wersd364d" path="res://Art/Audio/Music/Shattered Pixel Dungeon - Halls (OST) (320 KBps).mp3" id="17_552ac"]
+[ext_resource type="AudioStream" uid="uid://dk1xp52k0vbyq" path="res://Art/Audio/Music/xDeviruchi - Title Theme .wav" id="17_552ac"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4k6k"]
 texture = ExtResource("1_fcru5")

@@ -610,6 +610,7 @@ ExtResource("17_0fnsn"): 1
 [node name="HUD" parent="." instance=ExtResource("19_tri1d")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("20_7ry4b")]
+visible = false
 
 [node name="Door" parent="." instance=ExtResource("21_7ry4b")]
 position = Vector2(96, 443)

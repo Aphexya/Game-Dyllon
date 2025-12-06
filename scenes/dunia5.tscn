@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bnmd3gotp2hv5"]
+[gd_scene load_steps=29 format=3 uid="uid://bnmd3gotp2hv5"]
 
 [ext_resource type="Texture2D" uid="uid://qgjr2eyvncri" path="res://Art/Map Level 5/spriteSheet_lightBulbSmallAnimation_16x16.png" id="1_407ck"]
 [ext_resource type="Script" uid="uid://0nv8ixxu1c3a" path="res://scripts/dunia5.gd" id="1_icote"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://581i30dgv63t" path="res://scenes/HUD.tscn" id="14_obuaj"]
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="15_bd0b7"]
 [ext_resource type="AudioStream" uid="uid://o4b7yurp6ce7" path="res://Art/Audio/Music/Wuthering Waves, jixwang, VISION SOUND - With Glory I Shall Fall (320 KBps).mp3" id="16_bd0b7"]
+[ext_resource type="PackedScene" uid="uid://dv7f4u6bi783i" path="res://scenes/peti.tscn" id="17_ytxdn"]
+[ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="18_rgdxq"]
+[ext_resource type="Resource" uid="uid://b1pi6k8islqo4" path="res://Items/potion.tres" id="19_gyc8w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o001w"]
 texture = ExtResource("1_407ck")
@@ -967,7 +970,20 @@ is_boss = true
 [node name="HUD" parent="." instance=ExtResource("14_obuaj")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("15_bd0b7")]
+visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_bd0b7")
 bus = &"Music"
+
+[node name="peti" parent="." instance=ExtResource("17_ytxdn")]
+position = Vector2(329, 488)
+items = Dictionary[ExtResource("18_rgdxq"), int]({
+ExtResource("19_gyc8w"): 3
+})
+
+[node name="peti2" parent="." instance=ExtResource("17_ytxdn")]
+position = Vector2(744, 487)
+items = Dictionary[ExtResource("18_rgdxq"), int]({
+ExtResource("19_gyc8w"): 3
+})
