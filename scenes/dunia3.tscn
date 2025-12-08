@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="14_ln5c1"]
 [ext_resource type="AudioStream" uid="uid://dfnqi8qc44kao" path="res://Art/Audio/Music/Pixel Dungeon OST Main Theme (320 KBps).mp3" id="15_ln5c1"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rgi52"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ln5c1"]
 texture = ExtResource("1_qlxh0")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -145,7 +145,7 @@ texture = ExtResource("1_qlxh0")
 
 [sub_resource type="TileSet" id="TileSet_hloym"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_rgi52")
+sources/0 = SubResource("TileSetAtlasSource_ln5c1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyskw"]
 size = Vector2(34, 18)

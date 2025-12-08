@@ -1,10 +1,18 @@
 extends Resource
 class_name Inventory
 
-signal updated
+signal updated # Sinyal untuk memberi tahu UI bahwa inventory berubah
 
+# Array berisi slot-slot item dalam inventory
 @export var slots: Array[InventorySlot] = []
 
+# ============================================================
+# INSERT ITEM KE INVENTORY
+# - Jika item sudah ada, tambahkan jumlahnya.
+# - Jika belum ada, cari slot kosong dan isi.
+# - Jika semua penuh, buat slot baru dan tambahkan ke array.
+# - Emit sinyal 'updated' agar UI ikut diperbarui.
+# ============================================================
 func insert(item: InventoryItem):
 	var itemSlots = slots.filter(func(slot): return slot.item == item)
 	if !itemSlots.is_empty():
@@ -23,6 +31,15 @@ func insert(item: InventoryItem):
 			
 	updated.emit()
 
+
+# ============================================================
+# MENGGUNAKAN ITEM
+# - Mengecek apakah slot berisi item.
+# - Menjalankan efek item (contoh: heal).
+# - Mengurangi jumlah item di slot.
+# - Menghapus item jika jumlahnya habis.
+# - Emit sinyal untuk memperbarui UI.
+# ============================================================
 func use_item(slot: InventorySlot, player):
 	if slot.item == null:
 		print("NO ITEM IN SLOT")
@@ -44,7 +61,11 @@ func use_item(slot: InventorySlot, player):
 
 	updated.emit()
 	
-	
+
+# ============================================================
+# MENGHITUNG JUMLAH ITEM BERDASARKAN NAMA
+# - Dipakai untuk mengecek jumlah Key Fragment atau item tertentu.
+# ============================================================
 func get_item_count(item_name: String) -> int:
 	var count = 0
 	for slot in slots:

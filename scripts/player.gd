@@ -1,32 +1,40 @@
 extends CharacterBody2D
 
-@export var attack_damage = 25
-@export var inventory: Inventory
+# ================================
+# EXPORT VARIABLES
+# ================================
+@export var attack_damage = 25 # Damage serangan player
+@export var inventory: Inventory # Inventory player
 
-# Script untuk mengatur perilaku player: gerak, serangan, kamera, dan kesehatan.
-var enemy_inattack_range = false
-var enemy_attack_cooldown = true
+# ================================
+# PLAYER STATUS
+# ================================
 var max_health = 100
 var health = 100
 var player_alive = true
 
-var current_enemy: Node = null
+var enemy_inattack_range = false # True jika musuh menyentuh hitbox player
+var enemy_attack_cooldown = true # Delay serangan musuh
+var current_enemy: Node = null # Menyimpan musuh yg sedang menyentuh player
 
 var attack_ip = false # status apakah player sedang menyerang
+const kecepatan = 100 # Kecepatan gerak
+var arah = "diam" # Arah terakhir bergerak
 
-const kecepatan = 100
-var arah = "diam" # arah pergerakan player terakhir
-
-
-
+# ================================
+# READY FUNCTION
+# ================================
 func _ready():
 	add_to_group("player")
 	print("Player groups:", get_groups())
 
 
-# Fungsi utama yang dipanggil setiap frame
+# ================================
+# MAIN LOOP
+# ================================
 func _physics_process(delta):
-	if !global.player_can_move: # kode gerakan player
+	# Player hanya dapat bergerak jika tidak dibekukan global
+	if !global.player_can_move: 
 		return
 	gerak_player(delta)
 	enemy_attack()
@@ -34,7 +42,7 @@ func _physics_process(delta):
 	#current_camera()
 	update_health()
 	
-	# Jika health habis, player dianggap mati
+	# Jika mati → set status mati, putar suara, dan tampilkan game overati
 	if health <= 0 and player_alive:
 		player_alive = false
 		health = 0
@@ -47,7 +55,9 @@ func _physics_process(delta):
 
 
 
-# Mengatur gerakan player dan animasi saat bergerak
+# ================================
+# GERAKAN & ANIMASI
+# ================================
 func gerak_player(delta):
 	var is_moving = false
 	
@@ -80,6 +90,7 @@ func gerak_player(delta):
 	# Update animasi hanya jika tidak sedang menyerang
 	if !attack_ip:
 		arah_player(is_moving)
+		
 	# FOOTSTEP SFX
 	if is_moving and !$Audio/Footstep.playing:
 		$Audio/Footstep.play()
@@ -89,7 +100,9 @@ func gerak_player(delta):
 	move_and_slide()
 
 
-# Mengatur animasi sesuai arah dan status gerak
+# ================================
+# ANIMASI BERDASARKAN ARAH
+# ================================k
 func arah_player(gerak):
 	var arah_sekarang = arah
 	var animasi = $AnimatedSprite2D
@@ -121,20 +134,9 @@ func arah_player(gerak):
 func player():
 	pass # hanya sebagai penanda bahwa ini node Player
 
-func set_camera_limit(tilemap: TileMap):
-	await get_tree().process_frame
-
-	var cam = $Camera2D
-	print("Camera found? => ", cam)
-
-	if cam == null:
-		print("❌ Kamera tidak ditemukan! Cek Player di scene ini.")
-		return
-
-	
-
-# Deteksi ketika musuh masuk ke area serangan player
-# callback
+# ================================
+# HITBOX MUSUH MASUK / KELUAR
+# ================================
 func _on_player_hitbox_body_entered(body: Node2D):
 	if body.has_method("enemy"):
 		enemy_inattack_range = true
@@ -147,7 +149,9 @@ func _on_player_hitbox_body_exited(body: Node2D):
 			current_enemy = null
 
 
-# Mengatur logika serangan musuh ke player
+# ================================
+# MUSUH MENYERANG PLAYER
+# ================================
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown and current_enemy != null:
 		var dmg = current_enemy.attack_damage
@@ -157,13 +161,13 @@ func enemy_attack():
 		$attack_cooldown.start()
 		print("Player HP:", health, "took dmg:", dmg)
 
-
-
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 
 
-# Mengatur animasi dan logika saat player menyerang (BISA SAMBIL GERAK)
+# ================================
+# PLAYER MENYERANG MUSUH
+# ================================
 func attack():
 	var arah_sekarang = arah
 	
@@ -186,15 +190,15 @@ func attack():
 		
 		$deal_attack_timer.start()
 
-
 # Reset status serangan setelah animasi selesai
 func _on_deal_attack_timer_timeout() -> void:
 	global.player_current_attack = false
 	attack_ip = false
-	
-	# Tidak perlu start timer lagi karena sudah one-shot
 
-# Menampilkan dan memperbarui health bar player
+
+# ================================
+# HEALTH SYSTEM
+# ================================
 func update_health():
 	var healthbar = $healthbar
 	healthbar.value = health
@@ -203,7 +207,6 @@ func update_health():
 		healthbar.modulate.a = 3.0    # transparan saat full HP
 	else:
 		healthbar.modulate.a = 1.0    # solid saat HP berkurang
-
 
 func heal(amount):
 	health = min(health + amount, max_health)
@@ -220,7 +223,9 @@ func heal(amount):
 	#if health <= 0:
 		#health = 0
 
-# Respawn untuk kembali hidup lagi
+# ================================
+# RESPAWN
+# ================================
 func respawn():
 	#$Audio/RespawnSound.play()
 
@@ -236,8 +241,25 @@ func respawn():
 
 	health = max_health
 	player_alive = true
-	
+
+# ================================
+# GAME OVER
+# ================================
 func show_game_over():
 	var game_over_scene = preload("res://scenes/GameOver.tscn").instantiate()
 	get_tree().current_scene.add_child(game_over_scene)
 	global.player_can_move = false
+
+
+# ================================
+# 
+# ================================
+func set_camera_limit(tilemap: TileMap):
+	await get_tree().process_frame
+
+	var cam = $Camera2D
+	print("Camera found? => ", cam)
+
+	if cam == null:
+		print("❌ Kamera tidak ditemukan! Cek Player di scene ini.")
+		return

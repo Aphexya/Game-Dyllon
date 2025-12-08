@@ -2,6 +2,12 @@ extends Node2D
 
 @onready var player = $player
 
+# =====================================================
+# READY FUNCTION
+# Menyiapkan musik, kamera, batas tilemap, dan posisi
+# player saat scene baru dimuat. Termasuk logika
+# transisi scene dan checkpoint.
+# =====================================================
 func _ready():
 	await get_tree().process_frame
 
@@ -31,14 +37,24 @@ func _ready():
 	if cp != Vector2(-999, -999):
 		player.global_position = cp
 
-
+# =====================================================
+# KETIKA INVENTORY DITUTUP
+# Mengaktifkan kembali pergerakan player.
+# =====================================================
 func _on_inventory_gui_closed() -> void:
 	global.player_can_move = true
 
-
+# =====================================================
+# KETIKA INVENTORY DIBUKA
+# Mematikan sementara pergerakan player.
+# =====================================================
 func _on_inventory_gui_opened() -> void:
 	global.player_can_move = false
 
+# =====================================================
+# FUNGSI RESPWAN PLAYER KE CHECKPOINT
+# Mengembalikan player ke checkpoint dan mereset semua musuh.
+# =====================================================
 func respawn_at_checkpoint():
 	var cp = global.checkpoint_scene_pos[global.current_scene]
 

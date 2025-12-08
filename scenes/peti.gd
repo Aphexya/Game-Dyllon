@@ -7,6 +7,9 @@ extends StaticBody2D
 
 var is_open: bool = false
 
+# ---------------------------------------------------------
+# Dipanggil ketika player menekan tombol interaksi pada peti
+# ---------------------------------------------------------
 func interact(interacter: Node2D) -> void:
 	print("Peti interact triggered")
 	if is_open: return
@@ -19,6 +22,9 @@ func interact(interacter: Node2D) -> void:
 	await animations.animation_finished
 	spawn_andcollect(interacter)
 
+# ---------------------------------------------------------
+# Membuat item muncul dari peti → bergerak → lalu otomatis dikumpulkan
+# ---------------------------------------------------------
 func spawn_andcollect(interacter: Node2D) -> void:
 	for i: InventoryItem in items:
 		for a in range(items[i]):

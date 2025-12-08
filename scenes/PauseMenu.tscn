@@ -152,7 +152,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_abn1t")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8ti4s")
 text = "Resume"
 
-[node name="Options" type="Button" parent="Panel/MainButtons"]
+[node name="Settings" type="Button" parent="Panel/MainButtons"]
 modulate = Color(0.6, 1, 1, 1)
 layout_mode = 2
 size_flags_vertical = 3
@@ -166,7 +166,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_yx35g")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vd2mf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_abn1t")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8ti4s")
-text = "Options"
+text = "Settings"
 
 [node name="MainMenu" type="Button" parent="Panel/MainButtons"]
 modulate = Color(0.6, 1, 1, 1)
@@ -184,7 +184,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_abn1t")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8ti4s")
 text = "Main Menu"
 
-[node name="Options" type="Panel" parent="Panel"]
+[node name="Settings" type="Panel" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -198,19 +198,7 @@ offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel/Options"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 54.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_jiu6o")
-theme_override_font_sizes/font_size = 30
-text = "Options"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Music" type="Label" parent="Panel/Options"]
+[node name="Music" type="Label" parent="Panel/Settings"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -225,7 +213,7 @@ text = "Music"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioControlMusic" type="HSlider" parent="Panel/Options"]
+[node name="AudioControlMusic" type="HSlider" parent="Panel/Settings"]
 layout_mode = 0
 offset_left = 166.0
 offset_top = 63.0
@@ -240,7 +228,7 @@ value = 1.0
 script = ExtResource("5_jiu6o")
 audio_bus_name = "Music"
 
-[node name="Sfx" type="Label" parent="Panel/Options"]
+[node name="Sfx" type="Label" parent="Panel/Settings"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -255,7 +243,7 @@ text = "SFX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioControlSfx" type="HSlider" parent="Panel/Options"]
+[node name="AudioControlSfx" type="HSlider" parent="Panel/Settings"]
 layout_mode = 0
 offset_left = 166.0
 offset_top = 146.0
@@ -270,7 +258,7 @@ value = 1.0
 script = ExtResource("5_jiu6o")
 audio_bus_name = "Sfx"
 
-[node name="Back" type="Button" parent="Panel/Options"]
+[node name="Back" type="Button" parent="Panel/Settings"]
 modulate = Color(0.6, 1, 1, 1)
 layout_mode = 0
 offset_left = 72.0
@@ -291,7 +279,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_5k6em")
 text = "Back"
 
 [connection signal="pressed" from="Panel/MainButtons/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Panel/MainButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/MainButtons/Settings" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Panel/MainButtons/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="value_changed" from="Panel/Options/AudioControlMusic" to="Panel/Options/AudioControlMusic" method="_on_value_changed"]
-[connection signal="value_changed" from="Panel/Options/AudioControlSfx" to="Panel/Options/AudioControlSfx" method="_on_value_changed"]
+[connection signal="value_changed" from="Panel/Settings/AudioControlMusic" to="Panel/Settings/AudioControlMusic" method="_on_value_changed"]
+[connection signal="value_changed" from="Panel/Settings/AudioControlSfx" to="Panel/Settings/AudioControlSfx" method="_on_value_changed"]

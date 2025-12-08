@@ -1,23 +1,30 @@
 extends CanvasLayer
 
 @onready var main_buttons: VBoxContainer = $Panel/MainButtons
-@onready var options: Panel = $Panel/Options
-@onready var back_button: Button = $Panel/Options/Back
+@onready var settings: Panel = $Panel/Settings
+@onready var back_button: Button = $Panel/Settings/Back
 
+
+# ---------------------------------------------------------
+# Fungsi awal ketika PauseMenu dibuat
+# ---------------------------------------------------------
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 
 	# tampilkan menu utama saat pause dibuka
 	main_buttons.visible = true
-	options.visible = false
+	settings.visible = false
 
 	# koneksi tombol
 	$Panel/MainButtons/Resume.pressed.connect(_on_resume)
 	$Panel/MainButtons/MainMenu.pressed.connect(_on_main_menu)
-	$Panel/MainButtons/Options.pressed.connect(_on_options)
-	back_button.pressed.connect(_on_back_options_pressed)
+	$Panel/MainButtons/Settings.pressed.connect(_on_settings)
+	back_button.pressed.connect(_on_back_settings_pressed)
 
+# ---------------------------------------------------------
+# Tombol Resume → lanjutkan game
+# ---------------------------------------------------------
 func _on_resume():
 	get_tree().paused = false
 	visible = false
@@ -25,15 +32,24 @@ func _on_resume():
 	if PauseManager.btn_menu:
 		PauseManager.btn_menu.visible = true
 
-func _on_options():
-	print("Options pressed")
+# ---------------------------------------------------------
+# Tombol Settings → tampilkan panel pengaturan
+# ---------------------------------------------------------
+func _on_settings():
+	print("Settings pressed")
 	main_buttons.visible = false
-	options.visible = true
+	settings.visible = true
 
+# ---------------------------------------------------------
+# Tombol Main Menu → keluar ke main_menu.tscn
+# ---------------------------------------------------------
 func _on_main_menu():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
-func _on_back_options_pressed():
+# ---------------------------------------------------------
+# Tombol Back di Settings → kembali ke menu utama
+# ---------------------------------------------------------
+func _on_back_settings_pressed():
 	main_buttons.visible = true
-	options.visible = false
+	settings.visible = false

@@ -18,12 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="16_552ac"]
 [ext_resource type="AudioStream" uid="uid://dk1xp52k0vbyq" path="res://Art/Audio/Music/xDeviruchi - Title Theme .wav" id="17_552ac"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4k6k"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_552ac"]
 texture = ExtResource("1_fcru5")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kuyi0"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fm2xn"]
 texture = ExtResource("2_1u66q")
 3:0/0 = 0
 4:0/0 = 0
@@ -35,7 +35,7 @@ texture = ExtResource("2_1u66q")
 4:2/0 = 0
 5:2/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0rqr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x5bvb"]
 texture = ExtResource("3_yymiu")
 1:0/0 = 0
 2:0/0 = 0
@@ -252,9 +252,9 @@ texture = ExtResource("3_yymiu")
 
 [sub_resource type="TileSet" id="TileSet_d5tgj"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_n4k6k")
-sources/1 = SubResource("TileSetAtlasSource_kuyi0")
-sources/2 = SubResource("TileSetAtlasSource_x0rqr")
+sources/0 = SubResource("TileSetAtlasSource_552ac")
+sources/1 = SubResource("TileSetAtlasSource_fm2xn")
+sources/2 = SubResource("TileSetAtlasSource_x5bvb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5tgj"]
 size = Vector2(84, 37)

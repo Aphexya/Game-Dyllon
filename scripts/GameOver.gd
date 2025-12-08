@@ -1,5 +1,11 @@
 extends CanvasLayer
 
+# =====================================================
+# READY FUNCTION
+# Dipanggil saat Game Over UI muncul.
+# - Memastikan musik Game Over diputar.
+# - Mem-pause seluruh gameplay tetapi UI tetap aktif.
+# =====================================================
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	if not $AudioStreamPlayer.playing:
@@ -7,6 +13,14 @@ func _ready():
 	get_tree().paused = true
 
 
+# =====================================================
+# TOMBOL "YES" → Respawn di Checkpoint
+# - Unpause game
+# - Memanggil fungsi respawn player
+# - Menghidupkan player kembali
+# - Menghapus UI Game Over
+# - Memanggil respawn semua musuh melalui dunia.gd
+# =====================================================
 func _on_button_yes_pressed() -> void:
 	# YES = Respawn di checkpoint
 	get_tree().paused = false
@@ -21,6 +35,11 @@ func _on_button_yes_pressed() -> void:
 	get_tree().current_scene.respawn_at_checkpoint()
 
 
+# =====================================================
+# TOMBOL "NO" → Kembali ke Main Menu
+# - Unpause game
+# - Langsung ganti ke scene main menu
+# =====================================================
 func _on_button_no_pressed() -> void:
 	# NO = Kembali ke menu
 	get_tree().paused = false

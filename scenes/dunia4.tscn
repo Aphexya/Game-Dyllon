@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dygr08fsqyi1g" path="res://scenes/Door.tscn" id="21_7ry4b"]
 [ext_resource type="AudioStream" uid="uid://dkwuho2rff74u" path="res://Art/Audio/Music/Pixel Dungeon - Exploration Theme (Ingame-Music) (High Quality Version) (320 KBps).mp3" id="22_dolsg"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tri1d"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dolsg"]
 texture = ExtResource("1_gm3ns")
 0:0/0 = 0
 1:0/0 = 0
@@ -193,7 +193,7 @@ texture = ExtResource("1_gm3ns")
 16:6/0 = 0
 17:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ry4b"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kfb0a"]
 texture = ExtResource("2_ab7m8")
 0:0/0 = 0
 1:0/0 = 0
@@ -266,7 +266,7 @@ texture = ExtResource("2_ab7m8")
 1:5/0 = 0
 2:5/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dolsg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0yu6"]
 texture = ExtResource("3_ve4tp")
 5:0/0 = 0
 6:0/0 = 0
@@ -310,7 +310,7 @@ texture = ExtResource("3_ve4tp")
 8:6/0 = 0
 9:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kfb0a"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cu5l"]
 texture = ExtResource("4_dq20u")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -428,14 +428,14 @@ texture = ExtResource("4_dq20u")
 3:7/0 = 0
 3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0yu6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ern5k"]
 texture = ExtResource("5_ay4rl")
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
 0:0/0/y_sort_origin = 4
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.65836, 3.48207, 6.09361, 3.48207, 5.75548, 14.2088, -5.39576, 14.2088)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cu5l"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ooeeb"]
 texture = ExtResource("6_2gmht")
 0:0/0 = 0
 1:0/0 = 0
@@ -482,7 +482,7 @@ texture = ExtResource("6_2gmht")
 6:3/0 = 0
 7:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ern5k"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wripw"]
 texture = ExtResource("7_5y8r0")
 0:0/0 = 0
 1:0/0 = 0
@@ -503,13 +503,13 @@ texture = ExtResource("7_5y8r0")
 
 [sub_resource type="TileSet" id="TileSet_ooeeb"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_tri1d")
-sources/1 = SubResource("TileSetAtlasSource_7ry4b")
-sources/2 = SubResource("TileSetAtlasSource_dolsg")
-sources/3 = SubResource("TileSetAtlasSource_kfb0a")
-sources/4 = SubResource("TileSetAtlasSource_k0yu6")
-sources/5 = SubResource("TileSetAtlasSource_0cu5l")
-sources/6 = SubResource("TileSetAtlasSource_ern5k")
+sources/0 = SubResource("TileSetAtlasSource_dolsg")
+sources/1 = SubResource("TileSetAtlasSource_kfb0a")
+sources/2 = SubResource("TileSetAtlasSource_k0yu6")
+sources/3 = SubResource("TileSetAtlasSource_0cu5l")
+sources/4 = SubResource("TileSetAtlasSource_ern5k")
+sources/5 = SubResource("TileSetAtlasSource_ooeeb")
+sources/6 = SubResource("TileSetAtlasSource_wripw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm3ns"]
 size = Vector2(31, 20)

@@ -10,7 +10,8 @@ extends CharacterBody2D
 
 @export var is_boss: bool = false
 
-# Script untuk AI musuh (slime): mengejar player, menerima damage, dan menampilkan health bar.
+# Script untuk AI musuh (slime/samurai dsb.): mengejar player,
+# menerima damage, menampilkan health bar, spawn drop, dan death logic.
 var health: int
 var player_chase = false
 var player = null
@@ -20,17 +21,23 @@ var is_dead = false  # Flag untuk mencegah logika berjalan setelah mati
 
 var spawn_position: Vector2
 
-
+# =================================================
+# READY / INISIALISASI
+# =================================================
 func _ready():
 	add_to_group("enemy")
 	spawn_position = global_position
 	health = max_health
 
+# Reset posisi, health, dan velocity saat ingin mengaktifkan ulang musuh
 func reset_enemy():
 	global_position = spawn_position
 	health = max_health
 	velocity = Vector2.ZERO
-	
+
+# =================================================
+# PHYSICS PROCESS - DIPANGGIL SETIAP FRAME (FIXED)
+# =================================================
 # Update posisi dan animasi musuh setiap frame
 func _physics_process(delta):
 	# Hentikan semua logika jika sudah mati
@@ -53,6 +60,9 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite2D.play("idle")
 
+# =================================================
+# AREA DETECTION (PLAYER MASUK / KELUAR ZONE)
+# =================================================
 # Deteksi saat player masuk/keluar area deteksi musuh
 func _on_detection_area_body_entered(body):
 	if body.name == "player":
@@ -67,6 +77,9 @@ func _on_detection_area_body_exited(body):
 func enemy():
 	pass
 
+# =================================================
+# HITBOX / INTERAKSI SERANGAN PLAYER
+# =================================================
 # Deteksi area serangan player (hitbox)
 func _on_enemy_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -76,6 +89,10 @@ func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_inattack_zone = false
 	
+
+# =================================================
+# DAMAGE LOGIC
+# =================================================
 # Mengatur logika damage yang diterima dari player
 func deal_with_damage():
 	if player_inattack_zone and global.player_current_attack == true:
@@ -89,6 +106,14 @@ func deal_with_damage():
 			if health <= 0:
 				die()  # Panggil fungsi death
 
+# Cooldown agar musuh tidak kena damage berulang terlalu cepat
+func _on_take_damage_cooldown_timeout() -> void:
+	can_take_damage = true
+	
+	
+# =================================================
+# DEATH / KEMATIAN
+# =================================================
 # Fungsi untuk menjalankan animasi death dan menghapus enemy
 func die():
 	print("=== DIE FUNCTION CALLED ===")
@@ -136,10 +161,10 @@ func die():
 		print("BOSS DEFEATED - LOADING VICTORY SCREEN")
 		get_tree().change_scene_to_file("res://scenes/VictoryScreen.tscn")
 
-# Cooldown agar musuh tidak kena damage berulang terlalu cepat
-func _on_take_damage_cooldown_timeout() -> void:
-	can_take_damage = true
-	
+
+# =================================================
+# UI / HEALTHBAR
+# =================================================
 # Menampilkan dan memperbarui health bar musuh
 func update_health():
 	var healthbar = $healthbar
@@ -151,7 +176,9 @@ func update_health():
 		healthbar.visible = true
 
 
-
+# =================================================
+# DROP ITEM SPAWN
+# =================================================
 func spawn_drop():
 	if drop_item == null:
 		print("Drop item null!")

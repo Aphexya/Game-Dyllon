@@ -143,7 +143,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
-text = "Options"
+text = "Settings"
 
 [node name="Button3" type="Button" parent="MainButtons"]
 modulate = Color(0.6, 1, 1, 1)
@@ -167,7 +167,7 @@ text = "Exit"
 stream = ExtResource("5_rtw2f")
 bus = &"Music"
 
-[node name="Options" type="Panel" parent="."]
+[node name="Settings" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -181,7 +181,7 @@ offset_bottom = 237.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Options"]
+[node name="Label" type="Label" parent="Settings"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -189,11 +189,11 @@ offset_bottom = 54.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_oa1go")
 theme_override_font_sizes/font_size = 30
-text = "Options"
+text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Music" type="Label" parent="Options"]
+[node name="Music" type="Label" parent="Settings"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -208,7 +208,7 @@ text = "Music"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioControlMusic" type="HSlider" parent="Options"]
+[node name="AudioControlMusic" type="HSlider" parent="Settings"]
 layout_mode = 0
 offset_left = 166.0
 offset_top = 63.0
@@ -223,7 +223,7 @@ value = 1.0
 script = ExtResource("4_wu84c")
 audio_bus_name = "Music"
 
-[node name="Sfx" type="Label" parent="Options"]
+[node name="Sfx" type="Label" parent="Settings"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -238,7 +238,7 @@ text = "SFX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioControlSfx" type="HSlider" parent="Options"]
+[node name="AudioControlSfx" type="HSlider" parent="Settings"]
 layout_mode = 0
 offset_left = 166.0
 offset_top = 146.0
@@ -253,7 +253,7 @@ value = 1.0
 script = ExtResource("4_wu84c")
 audio_bus_name = "Sfx"
 
-[node name="Back" type="Button" parent="Options"]
+[node name="Back" type="Button" parent="Settings"]
 modulate = Color(0.6, 1, 1, 1)
 layout_mode = 0
 offset_left = 72.0
@@ -274,8 +274,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
 text = "Back"
 
 [connection signal="pressed" from="MainButtons/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MainButtons/Button2" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainButtons/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MainButtons/Button2" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainButtons/Button3" to="." method="_on_exit_pressed"]
-[connection signal="value_changed" from="Options/AudioControlMusic" to="Options/AudioControlMusic" method="_on_value_changed"]
-[connection signal="value_changed" from="Options/AudioControlSfx" to="Options/AudioControlSfx" method="_on_value_changed"]
-[connection signal="pressed" from="Options/Back" to="." method="_on_back_options_pressed"]
+[connection signal="value_changed" from="Settings/AudioControlMusic" to="Settings/AudioControlMusic" method="_on_value_changed"]
+[connection signal="value_changed" from="Settings/AudioControlSfx" to="Settings/AudioControlSfx" method="_on_value_changed"]
+[connection signal="pressed" from="Settings/Back" to="." method="_on_back_pressed"]
