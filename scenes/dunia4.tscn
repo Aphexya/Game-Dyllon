@@ -560,7 +560,7 @@ position = Vector2(146, 204)
 position = Vector2(143, 256)
 
 [node name="player" parent="." instance=ExtResource("8_xvg0n")]
-position = Vector2(143, 256)
+position = Vector2(143, 257)
 
 [node name="dunia5_transition_point" type="Area2D" parent="."]
 script = ExtResource("12_ay4rl")
@@ -613,7 +613,7 @@ ExtResource("17_0fnsn"): 1
 visible = false
 
 [node name="Door" parent="." instance=ExtResource("21_7ry4b")]
-position = Vector2(96, 443)
+position = Vector2(96, 440)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_dolsg")

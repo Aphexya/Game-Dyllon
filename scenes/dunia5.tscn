@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bnmd3gotp2hv5"]
+[gd_scene load_steps=30 format=3 uid="uid://bnmd3gotp2hv5"]
 
 [ext_resource type="Texture2D" uid="uid://qgjr2eyvncri" path="res://Art/Map Level 5/spriteSheet_lightBulbSmallAnimation_16x16.png" id="1_407ck"]
 [ext_resource type="Script" uid="uid://0nv8ixxu1c3a" path="res://scripts/dunia5.gd" id="1_icote"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dv7f4u6bi783i" path="res://scenes/peti.tscn" id="17_ytxdn"]
 [ext_resource type="Script" uid="uid://bwpb4mny1iq2c" path="res://Inventory/InventoryItem.gd" id="18_rgdxq"]
 [ext_resource type="Resource" uid="uid://b1pi6k8islqo4" path="res://Items/potion.tres" id="19_gyc8w"]
+[ext_resource type="Script" uid="uid://c0pj3bre3vkim" path="res://scripts/transition_point.gd" id="20_rgdxq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ytxdn"]
 texture = ExtResource("1_407ck")
@@ -899,9 +900,6 @@ sources/3 = SubResource("TileSetAtlasSource_chn1w")
 sources/4 = SubResource("TileSetAtlasSource_so2v1")
 sources/5 = SubResource("TileSetAtlasSource_mfi07")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_407ck"]
-size = Vector2(68, 30)
-
 [sub_resource type="GDScript" id="GDScript_jyskw"]
 script/source = "extends Node2D
 
@@ -913,6 +911,9 @@ func _process(delta):
 		global.player_start_posy = global.next_spawn_pos.y
 		global.current_scene = global.next_scene_path.get_file().replace(\".tscn\", \"\")
 "
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyc8w"]
+size = Vector2(80.5, 24.5)
 
 [node name="dunia5" type="Node2D"]
 y_sort_enabled = true
@@ -937,12 +938,6 @@ position = Vector2(536, 609)
 [node name="player" parent="." instance=ExtResource("7_obuaj")]
 position = Vector2(536, 620)
 
-[node name="dunia5_exitpoint" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dunia5_exitpoint"]
-position = Vector2(536, 640)
-shape = SubResource("RectangleShape2D_407ck")
-
 [node name="SceneTransition" type="Node2D" parent="."]
 script = SubResource("GDScript_jyskw")
 
@@ -962,8 +957,8 @@ grow_vertical = 0
 
 [node name="Samurai" parent="." instance=ExtResource("12_6qpmd")]
 position = Vector2(536, 209)
-attack_damage = 20
-is_boss = true
+speed = 20.0
+attack_damage = 15
 
 [node name="TimeScore" parent="." instance=ExtResource("13_8iapf")]
 
@@ -979,11 +974,22 @@ bus = &"Music"
 [node name="peti" parent="." instance=ExtResource("17_ytxdn")]
 position = Vector2(329, 488)
 items = Dictionary[ExtResource("18_rgdxq"), int]({
-ExtResource("19_gyc8w"): 3
+ExtResource("19_gyc8w"): 5
 })
 
 [node name="peti2" parent="." instance=ExtResource("17_ytxdn")]
 position = Vector2(744, 487)
 items = Dictionary[ExtResource("18_rgdxq"), int]({
-ExtResource("19_gyc8w"): 3
+ExtResource("19_gyc8w"): 5
 })
+
+[node name="dunia4_exitpoint" type="Area2D" parent="."]
+script = ExtResource("20_rgdxq")
+target_scene = "res://scenes/dunia4.tscn"
+spawn_pos = Vector2(96, 433)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dunia4_exitpoint"]
+position = Vector2(536.75, 643.75)
+shape = SubResource("RectangleShape2D_gyc8w")
+
+[connection signal="body_entered" from="dunia4_exitpoint" to="dunia4_exitpoint" method="_on_body_entered"]

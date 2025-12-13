@@ -15,7 +15,6 @@ func _ready():
 	if player:
 		player.queue_free()
 
-	$Camera2D.enabled = true
 	
 
 	
