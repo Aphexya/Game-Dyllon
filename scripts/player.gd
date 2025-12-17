@@ -3,14 +3,14 @@ extends CharacterBody2D
 # ================================
 # EXPORT VARIABLES
 # ================================
-@export var attack_damage = 25 # Damage serangan player
+@export var attack_damage = 30 # Damage serangan player
 @export var inventory: Inventory # Inventory player
 
 # ================================
 # PLAYER STATUS
 # ================================
 var max_health = 100
-var health = 100
+var health = 150
 var player_alive = true
 
 var enemy_inattack_range = false # True jika musuh menyentuh hitbox player

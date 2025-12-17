@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwkcolwa8e36"]
+
+[ext_resource type="Script" uid="uid://ix242or74sod" path="res://DialogDoor.gd" id="1_bmmq0"]
+[ext_resource type="Texture2D" uid="uid://b6bfho36wp2ne" path="res://Art/Dialog/DialogBox.png" id="2_0udf2"]
+[ext_resource type="FontFile" uid="uid://dyob02l12r2d7" path="res://Art/Font/Retro Gaming.ttf" id="3_dc6mf"]
+[ext_resource type="FontFile" uid="uid://c2ohc36132ck" path="res://Art/Font/VCR_OSD_MONO_1.001.ttf" id="4_0ox22"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hpx5"]
+texture = ExtResource("2_0udf2")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bmmq0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0udf2"]
+bg_color = Color(0.47788, 0.47788, 0.47788, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc6mf"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ox22"]
+bg_color = Color(1, 0.752941, 0.796078, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="DialogDoor" type="CanvasLayer"]
+
+[node name="DialogDoor" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bmmq0")
+
+[node name="Panel" type="Panel" parent="DialogDoor"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -416.0
+offset_top = -284.0
+offset_right = 414.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5hpx5")
+
+[node name="Dyllon" type="Label" parent="DialogDoor/Panel"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 9.0
+offset_right = 171.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dc6mf")
+theme_override_font_sizes/font_size = 35
+text = "Dyllon"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogDoor/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -363.0
+offset_top = -59.0
+offset_right = 363.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_dc6mf")
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/normal_font_size = 20
+text = "Membutuhkan 3x Key Fragment"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonOk" type="Button" parent="DialogDoor/Panel"]
+modulate = Color(0.6, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = 34.0
+offset_right = 53.5
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_0ox22")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bmmq0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0udf2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dc6mf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ox22")
+text = "OK"
+
+[connection signal="pressed" from="DialogDoor/Panel/ButtonOk" to="DialogDoor" method="_on_ButtonOk_pressed"]

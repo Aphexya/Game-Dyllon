@@ -159,7 +159,7 @@ func die():
 	if is_boss:
 		GameTimer.stop()
 		print("BOSS DEFEATED - LOADING VICTORY SCREEN")
-		get_tree().change_scene_to_file("res://scenes/VictoryScreen.tscn")
+		get_tree().change_scene_to_file("res://scenes/OutroStory.tscn")
 
 
 # =================================================

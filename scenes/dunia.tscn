@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://caqc22oekle5"]
+[gd_scene load_steps=44 format=3 uid="uid://caqc22oekle5"]
 
 [ext_resource type="Script" uid="uid://23aqv6y2gp04" path="res://scripts/dunia.gd" id="1_5vhgi"]
 [ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_bisvx"]
@@ -20,10 +20,16 @@
 [ext_resource type="Resource" uid="uid://b1pi6k8islqo4" path="res://Items/potion.tres" id="14_bmaxm"]
 [ext_resource type="PackedScene" uid="uid://ccmqbmsb0ldcc" path="res://scenes/checkpoint.tscn" id="16_ulk4w"]
 [ext_resource type="PackedScene" uid="uid://ckgc2bctggw5g" path="res://scenes/Enemies/Slime.tscn" id="17_bmaxm"]
+[ext_resource type="Resource" uid="uid://bodp1swyymb4m" path="res://Items/key_fragment.tres" id="17_y3n7g"]
 [ext_resource type="PackedScene" uid="uid://ejc580sgw5ob" path="res://scenes/TimeScore.tscn" id="18_e7c52"]
+[ext_resource type="Script" uid="uid://cro0nv6rhe8hn" path="res://scenes/DungeonEntrance.gd" id="20_erm0q"]
 [ext_resource type="PackedScene" uid="uid://581i30dgv63t" path="res://scenes/HUD.tscn" id="20_k1p2x"]
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="21_87w3h"]
 [ext_resource type="AudioStream" uid="uid://cfx4n32c3wirs" path="res://Art/Audio/Music/Ciaccona Ultimate Song Full Version Wuthering Waves (320 KBps).mp3" id="24_1xiup"]
+[ext_resource type="PackedScene" uid="uid://bfh3e76cas2oa" path="res://scenes/DialogMasuk.tscn" id="26_2klkq"]
+[ext_resource type="PackedScene" uid="uid://dygr08fsqyi1g" path="res://scenes/Door.tscn" id="27_2klkq"]
+[ext_resource type="PackedScene" uid="uid://bwkcolwa8e36" path="res://scenes/DialogDoor.tscn" id="29_8jwsv"]
+[ext_resource type="PackedScene" uid="uid://cl6wkx6v1tdw5" path="res://scenes/Enemies/Samurai.tscn" id="30_3mp8a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2klkq"]
 texture = ExtResource("2_1xiup")
@@ -836,6 +842,9 @@ size = Vector2(57, 53)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7c52"]
 size = Vector2(72, 41)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3n7g"]
+size = Vector2(66.5, 54.25)
+
 [node name="dunia" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_5vhgi")
@@ -871,7 +880,8 @@ polygon = PackedVector2Array(10, -1, 268, 0, 267, -43, 340, -41, 339, 0, 658, 0,
 [node name="peti" parent="." instance=ExtResource("9_omm3i")]
 position = Vector2(63, 102)
 items = Dictionary[ExtResource("12_ulk4w"), int]({
-ExtResource("14_bmaxm"): 3
+ExtResource("14_bmaxm"): 3,
+ExtResource("17_y3n7g"): 2
 })
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -906,6 +916,13 @@ spawn_pos = Vector2(158, 254)
 position = Vector2(852, 296)
 shape = SubResource("RectangleShape2D_e7c52")
 
+[node name="DungeonEntrance" type="Area2D" parent="."]
+script = ExtResource("20_erm0q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonEntrance"]
+position = Vector2(114, 107)
+shape = SubResource("RectangleShape2D_y3n7g")
+
 [node name="Slime" parent="." instance=ExtResource("17_bmaxm")]
 position = Vector2(178, 154)
 
@@ -919,9 +936,10 @@ position = Vector2(478, 219)
 position = Vector2(644, 298)
 
 [node name="Slime5" parent="." instance=ExtResource("17_bmaxm")]
-position = Vector2(686, 101)
+position = Vector2(640, 145)
 
 [node name="TimeScore" parent="." instance=ExtResource("18_e7c52")]
+visible = false
 
 [node name="HUD" parent="." instance=ExtResource("20_k1p2x")]
 
@@ -932,7 +950,18 @@ visible = false
 stream = ExtResource("24_1xiup")
 bus = &"Music"
 
+[node name="DialogMasuk" parent="." instance=ExtResource("26_2klkq")]
+
+[node name="Door" parent="." instance=ExtResource("27_2klkq")]
+position = Vector2(66, 194)
+
+[node name="DialogDoor" parent="." instance=ExtResource("29_8jwsv")]
+
+[node name="Samurai" parent="." instance=ExtResource("30_3mp8a")]
+position = Vector2(88, 272)
+
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_opened"]
 [connection signal="body_entered" from="dunia2_transition_point" to="dunia2_transition_point" method="_on_body_entered"]
 [connection signal="body_entered" from="cliffside_transition_point" to="cliffside_transition_point" method="_on_body_entered"]
+[connection signal="body_entered" from="DungeonEntrance" to="DungeonEntrance" method="_on_body_entered"]

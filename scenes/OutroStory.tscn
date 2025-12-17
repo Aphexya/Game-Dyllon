@@ -1,0 +1,149 @@
+[gd_scene load_steps=12 format=3 uid="uid://c712pkr80t1sp"]
+
+[ext_resource type="Script" uid="uid://cfthmmfinvh3u" path="res://scripts/OutroStory.gd" id="1_eengd"]
+[ext_resource type="Texture2D" uid="uid://bsfbt17sbwtqd" path="res://Art 2/Ninja Adventure - Asset Pack/Ui/Dialog/DialogueBoxSimple.png" id="2_7ix7k"]
+[ext_resource type="FontFile" uid="uid://b37sve6nxj3tr" path="res://Art/Font/Fipps-Regular.otf" id="3_ad6ry"]
+[ext_resource type="FontFile" uid="uid://dyob02l12r2d7" path="res://Art/Font/Retro Gaming.ttf" id="4_8v3np"]
+[ext_resource type="FontFile" uid="uid://c2ohc36132ck" path="res://Art/Font/VCR_OSD_MONO_1.001.ttf" id="5_s4p3j"]
+[ext_resource type="AudioStream" uid="uid://slrfyflyivk4" path="res://Art/Audio/Music/Scar Boss Fight OST — Wuthering Waves (320 KBps).mp3" id="6_7ix7k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xmuf7"]
+texture = ExtResource("2_7ix7k")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ix7k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad6ry"]
+bg_color = Color(0.47788, 0.47788, 0.47788, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8v3np"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4p3j"]
+bg_color = Color(1, 0.752941, 0.796078, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.215686)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="OutroStory" type="CanvasLayer"]
+script = ExtResource("1_eengd")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 17.0
+offset_top = 32.0
+offset_right = 822.0
+offset_bottom = 441.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xmuf7")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -233.0
+offset_top = 33.0
+offset_right = 233.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ad6ry")
+theme_override_font_sizes/font_size = 40
+text = "EPILOG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -341.5
+offset_top = -77.0
+offset_right = 341.5
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_8v3np")
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/normal_font_size = 20
+text = "Setelah pertarungan panjang di laboratorium kuno itu, Dyllon berdiri terengah di hadapan tubuh boss terakhir yang perlahan runtuh menjadi debu cahaya. Dentuman mesin berhenti, dan keheningan menyelimuti ruangan. Di tangannya, lima inti core slime berpendar redup, seolah kehilangan tujuan mereka.
+
+Ia mengira segalanya telah berakhir.
+
+Namun saat Dyllon melangkah keluar dari laboratorium, dinding batu bergetar. Sebuah simbol kuno yang sama dengan lambang “Farthur sang Pemburu Naga” menyala di lantai, memantulkan cahaya kehijauan dari inti yang ia kumpulkan. Potongan-potongan ingatan asing tiba-tiba membanjiri pikirannya—bukan miliknya, melainkan kenangan seorang pemburu legendaris yang telah lama hilang.
+
+Dyllon akhirnya mengerti.
+
+Dungeon misterius itu bukan sekadar sarang monster, dan laboratorium bukan tempat penciptaan kekuatan, melainkan penjara. Monster-monster kuat yang ia hadapi bukanlah hasil eksperimen gagal, melainkan penjaga yang diciptakan untuk menahan sesuatu yang jauh lebih berbahaya. Lima inti core slime bukan kunci untuk membuka harta karun… melainkan segel terakhir.
+
+Dengan mengalahkan sang boss dan mengumpulkan inti tersebut, tanpa disadarinya, Dyllon telah menyelesaikan ritual yang dulu tidak pernah diselesaikan oleh Farthur.
+
+Suara berat bergema di dalam pikirannya.
+
+“Terima kasih, penerusku.”
+
+Legenda Farthur sang Pemburu Naga ternyata hanyalah setengah kebenaran. Farthur tidak menghilang karena gugur, melainkan karena ia memilih menyatu dengan dungeon itu sendiri, menjadi inti kesadaran yang menahan kekuatan purba agar tidak bangkit kembali.
+
+Kini, segel itu telah runtuh.
+
+Di kejauhan, langit mulai menggelap, dan dari celah-celah tanah, gema raungan yang belum pernah terdengar sebelumnya mengguncang dunia. Dyllon menatap inti di tangannya—yang perlahan retak dan hancur—menyadari satu hal yang mengubah segalanya:
+
+Ia bukan pahlawan yang menutup legenda.
+Ia adalah awal dari legenda yang jauh lebih besar.
+
+Dan petualangannya… baru saja dimulai."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonNext" type="Button" parent="Panel"]
+modulate = Color(0.6, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = 98.5
+offset_right = 61.0
+offset_bottom = 153.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_s4p3j")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ix7k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ad6ry")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8v3np")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4p3j")
+text = "NEXT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7ix7k")
+bus = &"Music"
+
+[connection signal="pressed" from="Panel/ButtonNext" to="." method="_on_button_next_pressed"]

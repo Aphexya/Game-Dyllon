@@ -8,6 +8,7 @@ class_name Door
 # =====================================================
 @export var required_keys := 3
 @export var key_name := "Key Fragment"
+@onready var dialog_door = get_tree().current_scene.get_node("DialogDoor/DialogDoor")
 
 var is_open := false
 
@@ -35,12 +36,19 @@ func _ready():
 # =====================================================
 func interact(player):
 	print("PLAYER interacts with DOOR")
+	print("dialog_door =", dialog_door)
 	if is_open:
 		return
+	
+	if dialog_door == null:
+		push_error("DialogDoor BELUM di-assign di Inspector!")
+		return
+	dialog_door.show_message("TES DIALOG DARI DOOR")
 	
 	var inv = player.inventory
 	if inv == null:
 		return
+		
 	print("--- DEBUG INVENTORY ---")
 	for slot in inv.slots:
 		if slot.item:
@@ -52,9 +60,11 @@ func interact(player):
 	if count >= required_keys:
 		open_door()
 	else:
-		# Tampilkan pesan jelas di log
-		print("❗ Membutuhkan ", required_keys, "x ", key_name, " untuk membuka pintu.")
-		print("   → Kamu hanya punya: ", count, "x ", key_name)
+		if dialog_door:
+			dialog_door.show_message(
+				"Kurasa pintu ini membutuhkan %d %s. \n" % [required_keys, key_name] +
+				"Watashi baru punya %d." % count
+			)
 
 
 # =====================================================
@@ -64,9 +74,10 @@ func interact(player):
 func open_door():
 	is_open = true
 	anim.play("open")
-
-
+	
 	# Hilangkan collision agar player bisa lewat
 	door_collision.disabled = true  
-
+	if dialog_door:
+		dialog_door.visible = false
+		
 	print("Pintu terbuka!")

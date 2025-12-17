@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5euddj7vajdx"
-path="res://.godot/imported/DialogBoxFaceset.png-2b656653635526a5b8f405f12b010ca1.ctex"
+path="res://.godot/imported/DialogBoxFaceset.png-dc0eb3cd2a9501f3ab0f5a6844a7c2cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art 2/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png"
-dest_files=["res://.godot/imported/DialogBoxFaceset.png-2b656653635526a5b8f405f12b010ca1.ctex"]
+source_file="res://Art/Dialog/DialogBoxFaceset.png"
+dest_files=["res://.godot/imported/DialogBoxFaceset.png-dc0eb3cd2a9501f3ab0f5a6844a7c2cc.ctex"]
 
 [params]
 
