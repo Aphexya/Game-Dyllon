@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://caqc22oekle5"]
+[gd_scene load_steps=43 format=3 uid="uid://caqc22oekle5"]
 
 [ext_resource type="Script" uid="uid://23aqv6y2gp04" path="res://scripts/dunia.gd" id="1_5vhgi"]
 [ext_resource type="Texture2D" uid="uid://pfd33ofde0jq" path="res://Art/Map Level 1/grass.png" id="1_bisvx"]
@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="21_87w3h"]
 [ext_resource type="AudioStream" uid="uid://cfx4n32c3wirs" path="res://Art/Audio/Music/Ciaccona Ultimate Song Full Version Wuthering Waves (320 KBps).mp3" id="24_1xiup"]
 [ext_resource type="PackedScene" uid="uid://bfh3e76cas2oa" path="res://scenes/DialogMasuk.tscn" id="26_2klkq"]
-[ext_resource type="PackedScene" uid="uid://dygr08fsqyi1g" path="res://scenes/Door.tscn" id="27_2klkq"]
 [ext_resource type="PackedScene" uid="uid://bwkcolwa8e36" path="res://scenes/DialogDoor.tscn" id="29_8jwsv"]
 [ext_resource type="PackedScene" uid="uid://cl6wkx6v1tdw5" path="res://scenes/Enemies/Samurai.tscn" id="30_3mp8a"]
 
@@ -939,12 +938,10 @@ position = Vector2(644, 298)
 position = Vector2(640, 145)
 
 [node name="TimeScore" parent="." instance=ExtResource("18_e7c52")]
-visible = false
 
 [node name="HUD" parent="." instance=ExtResource("20_k1p2x")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("21_87w3h")]
-visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_1xiup")
@@ -952,13 +949,10 @@ bus = &"Music"
 
 [node name="DialogMasuk" parent="." instance=ExtResource("26_2klkq")]
 
-[node name="Door" parent="." instance=ExtResource("27_2klkq")]
-position = Vector2(66, 194)
-
 [node name="DialogDoor" parent="." instance=ExtResource("29_8jwsv")]
 
 [node name="Samurai" parent="." instance=ExtResource("30_3mp8a")]
-position = Vector2(88, 272)
+position = Vector2(798, 417)
 
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_opened"]

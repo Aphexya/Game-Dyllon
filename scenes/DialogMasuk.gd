@@ -1,7 +1,7 @@
 extends Control
 
-@onready var dialog_box = $DialogBox
-@onready var button_ok = $DialogBox/Panel/ButtonOK
+@onready var dialog_masuk = $DialogMasuk
+@onready var button_ok = $DialogMasuk/Panel/ButtonOK
 
 func _ready():
 	visible = false
