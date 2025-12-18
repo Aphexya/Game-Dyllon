@@ -183,7 +183,7 @@ radius = 38.0132
 drop_item = ExtResource("2_dp3bm")
 item_drop_scene = ExtResource("3_76n0t")
 enemy_name = "Samurai"
-attack_damage = 25
+speed = 20.0
 is_boss = true
 
 [node name="AnimatedSprite2D" parent="." index="0"]

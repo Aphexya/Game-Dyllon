@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cskdlvntldwk7"]
+[gd_scene load_steps=35 format=3 uid="uid://cskdlvntldwk7"]
 
 [ext_resource type="Texture2D" uid="uid://cebfwo5rfkrsw" path="res://Art/Map Level 4/Set 1.1.png" id="1_gm3ns"]
 [ext_resource type="Script" uid="uid://ddmp8l1pbdd5t" path="res://scripts/dunia4.gd" id="1_ve4tp"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://brllqp0xswy5v" path="res://scenes/PauseMenu.tscn" id="20_7ry4b"]
 [ext_resource type="PackedScene" uid="uid://dygr08fsqyi1g" path="res://scenes/Door.tscn" id="21_7ry4b"]
 [ext_resource type="AudioStream" uid="uid://dkwuho2rff74u" path="res://Art/Audio/Music/Pixel Dungeon - Exploration Theme (Ingame-Music) (High Quality Version) (320 KBps).mp3" id="22_dolsg"]
+[ext_resource type="PackedScene" uid="uid://bwkcolwa8e36" path="res://scenes/DialogDoor.tscn" id="23_kfb0a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dolsg"]
 texture = ExtResource("1_gm3ns")
@@ -618,6 +619,8 @@ position = Vector2(96, 440)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_dolsg")
 bus = &"Music"
+
+[node name="DialogDoor" parent="." instance=ExtResource("23_kfb0a")]
 
 [connection signal="body_entered" from="dunia5_transition_point" to="dunia5_transition_point" method="_on_body_entered"]
 [connection signal="body_entered" from="dunia4_exitpoint" to="dunia4_exitpoint" method="_on_body_entered"]

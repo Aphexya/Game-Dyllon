@@ -43,7 +43,6 @@ func interact(player):
 	if dialog_door == null:
 		push_error("DialogDoor BELUM di-assign di Inspector!")
 		return
-	dialog_door.show_message("TES DIALOG DARI DOOR")
 	
 	var inv = player.inventory
 	if inv == null:

@@ -27,15 +27,16 @@ func _ready():
 	cam.limit_right  = cam.limit_left + rect.size.x * cell.x
 	cam.limit_bottom = cam.limit_top + rect.size.y * cell.y
 
-	# ✅ HANYA pindahkan player jika datang dari scene lain
-	if global.next_spawn_pos != Vector2.ZERO:
-		player.global_position = global.next_spawn_pos
-		global.next_spawn_pos = Vector2.ZERO
-		
-	var cp = global.checkpoint_scene_pos[global.current_scene]
+	if global.use_transition_spawn:
+		if global.next_spawn_pos != Vector2.ZERO:
+			player.global_position = global.next_spawn_pos
+		else:
+			var spawn_point = $SpawnPoint
+			player.global_position = spawn_point.global_position
 
-	if cp != Vector2(-999, -999):
-		player.global_position = cp
+		global.use_transition_spawn = false
+
+	print("Spawn dunia3:", player.global_position)
 
 # =====================================================
 # KETIKA INVENTORY DITUTUP
