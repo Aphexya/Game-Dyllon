@@ -837,11 +837,11 @@ sources/8 = SubResource("TileSetAtlasSource_8jwsv")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmaxm"]
 size = Vector2(57, 53)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7c52"]
-size = Vector2(72, 41)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3n7g"]
 size = Vector2(92, 25.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7c52"]
+size = Vector2(72, 41)
 
 [node name="dunia" type="Node2D"]
 y_sort_enabled = true
@@ -905,15 +905,6 @@ target_scene = "res://scenes/dunia2.tscn"
 position = Vector2(687, -27)
 shape = SubResource("RectangleShape2D_bmaxm")
 
-[node name="cliffside_transition_point" type="Area2D" parent="."]
-script = ExtResource("11_bmaxm")
-target_scene = "res://scenes/cliff_side.tscn"
-spawn_pos = Vector2(158, 254)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_transition_point"]
-position = Vector2(852, 296)
-shape = SubResource("RectangleShape2D_e7c52")
-
 [node name="DungeonEntrance" type="Area2D" parent="."]
 script = ExtResource("20_erm0q")
 
@@ -949,11 +940,19 @@ bus = &"Music"
 [node name="DialogMasuk" parent="." instance=ExtResource("26_2klkq")]
 
 [node name="Samurai" parent="." instance=ExtResource("30_3mp8a")]
-visible = false
 position = Vector2(798, 417)
+
+[node name="cliffside_transition_point" type="Area2D" parent="."]
+script = ExtResource("11_bmaxm")
+target_scene = "res://scenes/cliff_side.tscn"
+spawn_pos = Vector2(158, 254)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_transition_point"]
+position = Vector2(852, 296)
+shape = SubResource("RectangleShape2D_e7c52")
 
 [connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_opened"]
 [connection signal="body_entered" from="dunia2_transition_point" to="dunia2_transition_point" method="_on_body_entered"]
-[connection signal="body_entered" from="cliffside_transition_point" to="cliffside_transition_point" method="_on_body_entered"]
 [connection signal="body_entered" from="DungeonEntrance" to="DungeonEntrance" method="_on_body_entered"]
+[connection signal="body_entered" from="cliffside_transition_point" to="cliffside_transition_point" method="_on_body_entered"]
